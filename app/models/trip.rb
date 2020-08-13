@@ -1,0 +1,4 @@
+class Trip < ApplicationRecord
+    has_many :trip_locations
+    has_many :locations, through: :trip_locations
+end
