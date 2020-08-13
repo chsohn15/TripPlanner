@@ -1,5 +1,11 @@
 <h1>Places to visit </h1>
 
+<%= form_tag 'route', method: :get %>
+    <%= f.label :country %>
+    <%= f.collection_select :country, Country.all, :id, :name %>
+    <%= f.label :state %>
+    <%= f.collection_select :state, State.where(country:)
+
 <div>Locations: </div>
 <ul>
     <% @locations.each do |location|%>

@@ -1,0 +1,5 @@
+<%= form_tag('/cities', method: :get) do %>
+    <%= label_tag :states%>
+    <%= select_tag(:states, options_from_collection_for_select(@states, :id, :name)) %>
+    <%= submit_tag "Search" %>
+    <% end %>
