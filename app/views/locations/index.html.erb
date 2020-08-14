@@ -1,8 +1,29 @@
-<h1>Places to visit </h1>
+<h1>Location to Visit</h1>
 
-<div>Locations: </div>
+<%= form_tag('/locations', method: :get) do %>
+    <%= label_tag :country%>
+    <%= select_tag(:country, options_from_collection_for_select(Country.all, :id, :name)) %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+
+<%= form_tag('/locations', method: :get) do %>
+    <%= label_tag :state%>
+    <%= select_tag(:state, options_from_collection_for_select(@states, :id, :name)) %>
+    <%= @state %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<%= form_tag('/locations', method: :get) do %>
+    <%= label_tag :city%>
+    <%= select_tag(:city, options_from_collection_for_select(@cities, :id, :name)) %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<div> Location: </div>
 <ul>
     <% @locations.each do |location|%>
         <li><%= link_to location.name, location_path(location)%> </li>
     <% end %>
 </ul>
+

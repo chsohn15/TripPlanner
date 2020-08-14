@@ -2,13 +2,11 @@ class LocationsController < ApplicationController
     
     before_action :find_location, only: [:show, :edit, :update, :destroy]
 
-    def all_countries_states_cities
-        @countries = Country.all
-        @states = State.all
-        @cities = City.all
-    end
     
     def index
+        @countries = Country.all
+        @states = State.where(country_id: params[:country])
+        @cities = City.where(state_id: params[:state])
         @locations = Location.where(city_id: params[:city])
     end
 
