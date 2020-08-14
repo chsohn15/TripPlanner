@@ -1,0 +1,9 @@
+
+
+
+
+<%= form_tag(city_locations_path(value), method: :get) do %>
+    <%= label_tag "Select City"%>
+    <%= select_tag(:city_id, options_from_collection_for_select(@cities, :id, :name)) %>
+    <%= submit_tag "Search" %>
+<% end %>

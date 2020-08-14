@@ -1,6 +1,6 @@
 
 
-<%= form_tag(country_states_path(params[:country_id]), method: :get) do %>
+<%= form_tag states_path, method: :get do %>
     <%= label_tag :country_id, "Select Country"%>
     <%= select_tag(:country_id, options_from_collection_for_select(@countries, :id, :name)) %>
     <%= submit_tag "Search" %>

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :countries do 
-    resources :states do
-      resources :cities do
-        resources :locations
-      end
-    end
+  resources :countries 
+  resources :states
+  resources :cities do
+    resources :locations
   end
+   
 
   # resources :locations
   resources :trips

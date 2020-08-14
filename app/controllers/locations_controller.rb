@@ -4,10 +4,12 @@ class LocationsController < ApplicationController
 
     
     def index
+        byebug
         @countries = Country.all
         @states = State.where(country_id: params[:country])
         @cities = City.where(state_id: params[:state])
-        @locations = Location.where(city_id: params[:city])   
+        city_id = params[:city_id]
+        @locations = Location.where(city_id: params[:city_id])   
         if params[:category] == "food"
             @locations = @locations.where(category: "food")
         elsif params[:category] == "outdoor"
