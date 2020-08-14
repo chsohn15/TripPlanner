@@ -3,6 +3,12 @@ class TripsController < ApplicationController
         @trips = Trip.all 
     end
     
+    def all_countries_states_cities
+        @countries = Country.all
+        @states = State.all
+        @cities = City.all
+    end
+
     def show
         @trip = Trip.find(params[:id])
     end

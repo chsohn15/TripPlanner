@@ -4,3 +4,5 @@
 <div><%= "City: #{@location.city.name}, #{@location.state_name}" %></div>
 <div><%= "Category: #{@location.category}" %></div>
 
+
+<%= link_to 'Add to trip', edit_location_path(@location) %>

@@ -10,9 +10,7 @@
 # Use CS to create countries, regions and cities.
 
 # Use FAKER to generate random locations. 
-# Country.destroy_all
-# State.destroy_all
-# City.destroy_all
+
 require 'faker'
 
 # CS.countries.each do |c_abbr,country_name|
@@ -24,30 +22,51 @@ require 'faker'
 #         end
 #     end
 # end
+
+# fairfax = City.find_by(name: "Fairfax")
+
+
 Location.destroy_all
 Trip.destroy_all
 TripLocation.destroy_all
+Country.destroy_all
+State.destroy_all
+City.destroy_all
 
-fairfax = City.find_by(name: "Fairfax")
+# 10.times do
+    Country.create(name: Faker::Address.unique.country)
+# end
+
+3.times do
+    State.create(name: Faker::Address.state, country: Country.all.sample)
+end
+
+10.times do
+    City.create(name: Faker::Address.city, state: State.all.sample)
+end
+
+
+
+
 
 5.times do 
-    Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: fairfax, category: "food")
+    Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: City.all.sample, category: "food")
 end
 
 5.times do
-    Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: fairfax, category: "park")
+    Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: City.all.sample, category: "park")
 end
 
 5.times do
-    Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: fairfax, category: "hotel")
+    Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: City.all.sample, category: "hotel")
 end
 
 5.times do
-    Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: fairfax, category: "museum")
+    Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: City.all.sample, category: "museum")
 end
 
 5.times do
-    Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: fairfax, category: "business")
+    Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: City.all.sample, category: "business")
 end
 
 
@@ -56,3 +75,4 @@ trip = Trip.create(name: "Trip to Fairfax", start_date: Date.parse("2018/05/10")
 10.times do
     TripLocation.create(location: Location.all.sample, trip: trip, rating: rand(1..10))
 end
+
