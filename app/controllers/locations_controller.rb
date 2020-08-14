@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
     
     
     def index
-        @locations = Location.all
+        @locations = Location.where(city_id: params[:city])
     end
 
     def show
