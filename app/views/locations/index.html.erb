@@ -20,6 +20,26 @@
     <%= submit_tag "Search" %>
 <% end %>
 
+<%= form_tag('/locations', method: :get) do %>
+    <%= radio_button_tag("category", "food", checked = (params[:category] == "food"))%>
+    <%= label_tag :category_food, "Food" %>
+    <%= radio_button_tag("category", "outdoor", checked = (params[:category] == "outdoor"))%>
+    <%= label_tag :category_outdoor, "Outdoor" %>
+    <%= radio_button_tag("category", "attraction", checked = (params[:category] == "attraction"))%>
+    <%= label_tag :category_attraction, "Attraction" %>
+    <%= radio_button_tag("category", "shopping", checked = (params[:category] == "shopping"))%>
+    <%= label_tag :category_shopping, "Shopping" %>
+    <%= radio_button_tag("category", "hotel", checked = (params[:category] == "hotel"))%>
+    <%= label_tag :category_hotels, "Hotels" %>
+    <%= radio_button_tag("category", "business", checked = (params[:category] == "business"))%>
+    <%= label_tag :category_business, "Business" %>
+    <%= radio_button_tag("category", "all", checked = (params[:category] == "all"))%>
+    <%= label_tag :category_business, "All" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+
+
+
 <div> Location: </div>
 <ul>
     <% @locations.each do |location|%>

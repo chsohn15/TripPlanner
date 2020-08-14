@@ -1,23 +1,12 @@
 
 
-<%= form_tag('/countries', method: :get) do %>
-    <%= label_tag :country%>
-    <%= select_tag(:country, options_from_collection_for_select(Country.all, :id, :name)) %>
+<%= form_tag(country_states_path(params[:country_id]), method: :get) do %>
+    <%= label_tag :country_id, "Select Country"%>
+    <%= select_tag(:country_id, options_from_collection_for_select(@countries, :id, :name)) %>
     <%= submit_tag "Search" %>
 <% end %>
 
 
-<%= form_tag('/countries', method: :get) do %>
-    <%= label_tag :state%>
-    <%= select_tag(:state, options_from_collection_for_select(@states, :id, :name)) %>
-    <%= @state %>
-    <%= submit_tag "Search" %>
-<% end %>
 
-<%= form_tag('/locations', method: :get) do %>
-    <%= label_tag :city%>
-    <%= select_tag(:city, options_from_collection_for_select(@cities, :id, :name)) %>
-    <%= submit_tag "Search" %>
-<% end %>
 
 

@@ -7,7 +7,22 @@ class LocationsController < ApplicationController
         @countries = Country.all
         @states = State.where(country_id: params[:country])
         @cities = City.where(state_id: params[:state])
-        @locations = Location.where(city_id: params[:city])
+        @locations = Location.where(city_id: params[:city])   
+        if params[:category] == "food"
+            @locations = @locations.where(category: "food")
+        elsif params[:category] == "outdoor"
+            @locations = @locations.where(category: "outdoor")    
+        elsif params[:category] == "attractions"
+            @locations = @locations.where(category: "attractions")    
+        elsif params[:category] == "shopping"
+            @locations = @locations.where(category: "shopping")    
+        elsif params[:category] == "hotel"
+            @locations = @locations.where(category: "hotel")    
+        elsif params[:category] == "business"
+            @locations = @locations.where(category: "business")    
+        else
+            @locations  
+        end
     end
 
     def show

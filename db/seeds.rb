@@ -54,7 +54,7 @@ end
 end
 
 10.times do
-    Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: City.all.sample, category: "park")
+    Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: City.all.sample, category: "outdoor")
 end
 
 10.times do

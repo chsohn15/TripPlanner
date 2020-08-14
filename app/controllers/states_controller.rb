@@ -1,5 +1,5 @@
 class StatesController < ApplicationController
-    # def index
-    #     @states = State.where(country_id: params[:country])
-    # end
+    def index
+        @states = State.where(country_id: params[:country_id])
+    end
 end
