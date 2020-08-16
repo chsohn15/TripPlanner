@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :countries 
   resources :states
-  resources :cities do
-    resources :locations
+  resources :cities, only: [:index]
+  resources :cities, only: [:show] do
+    resources :locations, only: [:index, :show, :edit, :update]
   end
    
 

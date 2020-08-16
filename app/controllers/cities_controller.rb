@@ -4,7 +4,9 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @city = City.find(params[:city_id])
+    byebug
+    @city = City.find(params[:id])
+    redirect_to city_locations_path(@city)
   end
 
 

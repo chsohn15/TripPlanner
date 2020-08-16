@@ -1,7 +1,7 @@
 <h1>Location to Visit</h1>
 
 
-<%= form_tag('/locations', method: :get) do %>
+<%= form_tag(city_locations_path(params[:city_id]), method: :get) do %>
     <%= radio_button_tag("category", "food", checked = (params[:category] == "food"))%>
     <%= label_tag :category_food, "Food" %>
     <%= radio_button_tag("category", "outdoor", checked = (params[:category] == "outdoor"))%>
@@ -24,7 +24,7 @@
 <div> Location: </div>
 <ul>
     <% @locations.each do |location|%>
-        <li><%= link_to location.name, location_path(location)%> </li>
+        <li><%= location.name %> </li>
     <% end %>
 </ul>
 
