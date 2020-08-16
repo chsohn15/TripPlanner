@@ -1,4 +1,4 @@
-<h1>Location to Visit</h1>
+<h1><%= "Places to Visit in #{@city.name}" %></h1>
 
 
 <%= form_tag(city_locations_path(params[:city_id]), method: :get) do %>
@@ -21,10 +21,10 @@
 
 
 
-<div> Location: </div>
+<div> Places: </div>
 <ul>
     <% @locations.each do |location|%>
-        <li><%= location.name %> </li>
+        <li><%= link_to location.name, city_location_path(params[:city_id], location) %> </li>
     <% end %>
 </ul>
 

@@ -1,1 +1,6 @@
-<h1>City</h1>
+<h1><%= @city.name %></h1>
+
+<h4>About</h4>
+
+
+<%= link_to "Search All Locations", city_locations_path(@city) %>

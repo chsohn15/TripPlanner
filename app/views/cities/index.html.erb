@@ -1,9 +1,16 @@
 
+<h1> Cities </h1>
 
+<ul>
+    <% @cities.each do |city| %>
+        <li><%= link_to city.name, city_path(city) %></li>
+    <% end %>
+</ul>
 
-
-<%= form_tag , method: :get do %>
-    <%= label_tag :city_id, "Select City"%>
-    <%= select_tag(:city_id, options_from_collection_for_select(@cities, :id, :name))%>
-    <%= submit_tag "Search" %>
+<% if false %>
+    <%= form_tag city_path(params[:id]), method: :get do %>
+        <%= label_tag :id, "Select City"%>
+        <%= select_tag(:id, options_from_collection_for_select(@cities, :id, :name))%>
+        <%= submit_tag "Search" %>
+    <% end %>
 <% end %>

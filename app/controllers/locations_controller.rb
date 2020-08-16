@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
     
     def index
         if params[:city_id]
+            @city = City.find(params[:city_id])
             if params[:category]
                 if params[:category] == "all"
                     @locations = Location.where(city_id: params[:city_id])
