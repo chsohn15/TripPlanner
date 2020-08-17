@@ -2,7 +2,7 @@
 
 <div> Start Date: <%= @trip.start_date.strftime("%B %d, %Y") %></div>
 <div> End Date: <%= @trip.end_date.strftime("%B %d, %Y") %></div>
-<div> Average Rating: <%= @trip.average_rating %></div>
+<div> Average Rating: <%= @trip.average_rating.round(2) %></div>
 <div> Visited: </div>
 <ul>
     <% @trip.locations.each do |location| %>

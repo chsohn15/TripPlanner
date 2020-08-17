@@ -9,7 +9,7 @@ class Trip < ApplicationRecord
         if a.any?
             a.pluck(:rating).sum/a.count.to_f
         else
-            0
+            "No Rating"
         end
     end
 end
