@@ -1,6 +1,6 @@
 
 
-<%= "Select a state in #{Country.find(params[:country_id]).name}" %>
+<strong><%= "Select a state in #{Country.find(params[:country_id]).name}" %></strong>
 
 <ul>
     <% @states.each do |state| %>

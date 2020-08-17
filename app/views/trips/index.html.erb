@@ -1,4 +1,4 @@
-<h1>All Trips</h1>
+<h3>All my trips</h3>
 
 <ul>
     <% @trips.each do |trip| %>
@@ -6,4 +6,4 @@
     <% end %>
 </ul>
 
-<%= link_to "Add trip", new_trip_path %>
+<%= button_to "Add new trip", new_trip_path, method: :get %>

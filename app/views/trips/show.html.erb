@@ -15,5 +15,6 @@
 
 <br>
 
-<div><%= button_to "Add Locations", countries_path, method: :get %></div><br>
-<div><%= link_to "Edit Trip", edit_trip_path(@trip) %></div>
+<%= button_to "Back", trips_path, method: :get %><br>
+<div><%= button_to "Edit Trip", edit_trip_path(@trip), method: :get %></div><br>
+<div><%= button_to "Add Locations", countries_path, method: :get %></div>

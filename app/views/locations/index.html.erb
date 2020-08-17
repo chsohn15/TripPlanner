@@ -15,19 +15,22 @@
     <%= radio_button_tag("category", "business", checked = (params[:category] == "business"))%>
     <%= label_tag :category_business, "Business" %>
     <%= radio_button_tag("category", "all", checked = (params[:category] == "all"))%>
-    <%= label_tag :category_business, "All" %>
-    <%= submit_tag "Search" %>
-    <% end %>
+    <%= label_tag :category_business, "All" %><br><br>
+    <%= submit_tag "Search" %><br><br>
+<% end %>
 
 
+<% if @locations.any? %>
+    <div> Places: </div>
+    <ul>
+        <% @locations.each do |location|%>
+            <li><%= link_to location.name, city_location_path(params[:city_id], location) %> </li>
+        <% end %>
+    </ul>
+    <% else %>
+        <%= "There is no  location listed in this city" %>
+<% end %>
 
-<div> Places: </div>
-<ul>
-    <% @locations.each do |location|%>
-        <li><%= link_to location.name, city_location_path(params[:city_id], location) %> </li>
-    <% end %>
-</ul>
 
-
-<div><%= link_to "Search in Another Location", countries_path %></div>
+<div><%= button_to "Search in Another Location", countries_path, method: :get %></div>
 

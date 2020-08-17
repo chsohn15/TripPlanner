@@ -2,12 +2,19 @@
 <% if @location.image_url %>
     <%= image_tag(@location.image_url) %><br>
 <% end %>
-<div><%= "Address: #{@location.address}" %></div>
-<div><%= "City: #{@location.city.name}, #{@location.state_name}" %></div>
-<div><%= "Category: #{@location.category}" %></div>
-<div><%= "Average Rating: #{@location.average_rating}"%></div>
+
+<div><strong>Address:</strong><%= " #{@location.address}" %></div>
+<div><strong>City:</strong><%= " #{@location.city.name}" %></div>
+<div><strong>State:</strong><%= " #{@location.state_name}" %></div>
+<div><strong>Category:</strong><%= " #{@location.category}" %></div>
+<div><strong>Average Rating:</strong><%= " #{@location.average_rating}"%></div>
+
+<br>
+<br>
 
 <% if logged_in? %>  
-    <%= link_to 'Add to trip', edit_city_location_path(@location) %> <br>
+    <%= button_to 'Add this location to trip', edit_city_location_path(@location), method: :get %> <br>
 <% end %>
-<%= button_to "List of Locations for #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>
+
+<br>
+<%= button_to "All Locations at #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>
