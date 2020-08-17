@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :countries 
-  resources :states
+  resources :users, except: [:index]
+  get "/", to: "countries#index", as: "countries"
+  resources :states, only: [:index]
   resources :states, only: [:show] do
     resources :cities, only: [:index]
   end
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   end
    
   resources :trips
-  resources :trip_locations
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/login', to: "sessions#login"
   post '/login', to: "sessions#process_login"

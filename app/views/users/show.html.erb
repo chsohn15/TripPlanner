@@ -1,0 +1,8 @@
+<h4><%= "Username: #{@user.username}" %></h4
+<h4><%= "First Name: #{@user.first_name}" %></h4>
+<h4><%= "Last Name: #{@user.last_name}" %></h4>
+<h4><%= "Email Address: #{@user.email}" %></h4>
+
+<%= link_to "My Trips", trips_path %>
+<%= link_to "Edit Account Information", edit_user_path(@user) %>
+<%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete this account?"}%>

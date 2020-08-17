@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user
             session[:user_id] = @user.id
-            redirect_to trips_path
+            redirect_to user_path(@user)
         else
             flash.now[:login_error] = "Username is not valid"
             render :login
