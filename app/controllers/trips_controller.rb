@@ -15,8 +15,12 @@ class TripsController < ApplicationController
     def create
         @trip = Trip.new(user: current_user)
         @trip.assign_attributes(trip_params)
-        @trip.save
-        redirect_to trip_path(@trip)
+        if @trip.valid?
+            @trip.save
+            redirect_to trip_path(@trip)
+        else 
+            render :new
+        end
     end
 
     def edit
@@ -25,8 +29,13 @@ class TripsController < ApplicationController
 
     def update
         @trip = Trip.find(params[:id])
-        @trip.update(trip_params)
-        redirect_to trip_path(@trip)
+        @trip.assign_attributes(trip_params)
+        if @trip.valid?
+            @trip.save
+            redirect_to trip_path(@trip)
+        else 
+            render :edit
+        end
     end
 
     private
