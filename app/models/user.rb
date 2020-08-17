@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     has_many :trips
+    validates :username, uniqueness: {case_sensitive: false}
+    validates :username, :first_name, :last_name, :email, presence: true
 
     def display_name
         self.first_name + " " + self.last_name

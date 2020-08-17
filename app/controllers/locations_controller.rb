@@ -30,8 +30,14 @@ class LocationsController < ApplicationController
     
     def update
         @trip_location = TripLocation.new(location: @location)
-        @trip_location.update(t_l_params)
-        redirect_to trip_path(@trip_location.trip)
+        @trip_location.assign_attributes(t_l_params)
+        if @trip_location.valid?
+            @trip_location.save
+            redirect_to trip_path(@trip_location.trip)
+        else
+            render :edit
+        end
+        
     end
     
     private

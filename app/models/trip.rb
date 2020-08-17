@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
     belongs_to :user
     has_many :trip_locations
     has_many :locations, through: :trip_locations
-
+    validates :name, :start_date, :end_date, presence: true
 
 
     def average_rating
