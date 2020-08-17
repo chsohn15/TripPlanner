@@ -49,7 +49,7 @@ va_city.each do |name|
     City.create(name: name, state: virginia)
 end
 
-
+ny_cities = []
 
 
 
