@@ -24,6 +24,7 @@ class LocationsController < ApplicationController
     end
 
     def edit
+        @trips = Trip.where(user: current_user)
         @trip_location = TripLocation.new
     end
     

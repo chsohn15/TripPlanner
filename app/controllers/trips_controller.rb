@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
+    
     def index
-        @trips = Trip.all 
+        @trips = Trip.where(user_id: session[:user_id]) 
     end
     
     def all_countries_states_cities
@@ -18,7 +19,12 @@ class TripsController < ApplicationController
     end
 
     def create
-        @trip = Trip.new(trip_params)
+        name = params[:trip][:name]
+        start_date = params[:trip][:start_date]
+        end_date = params[:trip][:end_date]
+        user = current_user
+
+        @trip = Trip.new(name: name, start_date: start_date, end_date: end_date, user: user)
         @trip.save
         redirect_to trip_path(@trip)
     end
