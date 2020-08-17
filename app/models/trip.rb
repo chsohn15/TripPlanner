@@ -13,4 +13,8 @@ class Trip < ApplicationRecord
             0
         end
     end
+
+    def unique_cities_visited
+        self.locations.map {|location| location.city}.uniq 
+    end
 end

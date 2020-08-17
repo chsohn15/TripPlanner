@@ -1,11 +1,12 @@
 
 
+<div>
 <%= form_tag states_path, method: :get do %>
-    <%= label_tag :country_id, "Select Country"%>
+    <%= label_tag :country_id, "Select Country to Begin Your Search"%><br>
     <%= select_tag(:country_id, options_from_collection_for_select(@countries, :id, :name)) %>
     <%= submit_tag "Search" %>
 <% end %>
-
+</div>
 
 
 
