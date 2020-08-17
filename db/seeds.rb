@@ -33,46 +33,52 @@ Country.destroy_all
 State.destroy_all
 City.destroy_all
 
-2.times do
-    Country.create(name: Faker::Address.unique.country)
+
+usa= Country.create(name: CS.countries[:US])
+
+CS.get(:us).each do |abbr, state_name|
+    State.create(name: state_name, country: usa)
 end
 
-5.times do
-    State.create(name: Faker::Address.state, country: Country.all.sample)
-end
+virginia = State.find_by(name: "Virginia")
+new_york = State.find_by(name: "New York")
+california = State.find_by(name: "California")
 
-15.times do
-    City.create(name: Faker::Address.city, state: State.all.sample)
-end
-
-
-
-
-
-10.times do 
-    Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: City.all.sample, category: "food")
-end
-
-10.times do
-    Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: City.all.sample, category: "outdoor")
-end
-
-10.times do
-    Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: City.all.sample, category: "hotel")
-end
-
-10.times do
-    Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: City.all.sample, category: "museum")
-end
-
-10.times do
-    Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: City.all.sample, category: "business")
+va_city = ["Fairfax", "Springfield", "Centreville", "Chantilly", "Burke", "Richmond", "Charlottesville", "Leesburg"]
+va_city.each do |name|
+    City.create(name: name, state: virginia)
 end
 
 
-trip = Trip.create(name: "Trip to Fairfax", start_date: Date.parse("2018/05/10"), end_date: Date.parse("2018/05/24"))
 
-5.times do
-    TripLocation.create(location: Location.all.sample, trip: trip, rating: rand(1..5))
-end
+
+
+
+
+# 10.times do 
+#     Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: City.all.sample, category: "food")
+# end
+
+# 10.times do
+#     Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: City.all.sample, category: "outdoor")
+# end
+
+# 10.times do
+#     Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: City.all.sample, category: "hotel")
+# end
+
+# 10.times do
+#     Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: City.all.sample, category: "museum")
+# end
+
+# 10.times do
+#     Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: City.all.sample, category: "business")
+# end
+
+
+# trip = Trip.create(name: "Trip to Fairfax", start_date: Date.parse("2018/05/10"), end_date: Date.parse("2018/05/24"))
+
+# 5.times do
+#     TripLocation.create(location: Location.all.sample, trip: trip, rating: rand(1..5))
+# end
 
