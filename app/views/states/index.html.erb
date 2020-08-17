@@ -1,6 +1,16 @@
 
-<%= form_tag cities_path, method: :get do %>
+<% if false %>
+<%= form_tag state_cities_path(params[:state_id]), method: :get do %>
     <%= label_tag :state_id, "Select State"%>
     <%= select_tag(:state_id, options_from_collection_for_select(@states, :id, :name)) %>
     <%= submit_tag "Search" %>
 <% end %>
+<% end %>
+
+<%= "States for #{Country.find(params[:country_id]).name}" %>
+
+<ul>
+    <% @states.each do |state| %>
+        <li><%= link_to state.name, state_cities_path(state) %></li>
+    <% end %>
+</ul>

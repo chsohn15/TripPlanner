@@ -12,7 +12,13 @@ class Location < ApplicationRecord
         if ratings.any?
             (ratings.sum.to_f/ratings.count).round(2)
         else 
-            "No Ratings"
+            0
         end
     end
+
+    def num_of_visits
+        self.trip_locations.count
+    end
+
+
 end

@@ -1,5 +1,11 @@
 
-<h1> Cities </h1>
+<h1><%= "Cities in #{@state.name}" %></h1>
+
+<%= form_tag(state_cities_path(params[:state_id]), method: :get) do %>
+    <%= label_tag :sort_by, "Sort By"%>
+    <%= select_tag(:sort_by, options_for_select(["Highest Rated", "Lowest Rated", "Most Visited", "Alphabetically (A-Z)"])) %>
+    <%= submit_tag "Search" %>
+<% end %>
 
 <ul>
     <% @cities.each do |city| %>
@@ -7,10 +13,3 @@
     <% end %>
 </ul>
 
-<% if false %>
-    <%= form_tag city_path(params[:id]), method: :get do %>
-        <%= label_tag :id, "Select City"%>
-        <%= select_tag(:id, options_from_collection_for_select(@cities, :id, :name))%>
-        <%= submit_tag "Search" %>
-    <% end %>
-<% end %>
