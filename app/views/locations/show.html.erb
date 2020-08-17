@@ -10,4 +10,4 @@
 <% if logged_in? %>  
     <%= link_to 'Add to trip', edit_city_location_path(@location) %> <br>
 <% end %>
-<%= link_to "List of Locations for #{@location.city.name}", city_locations_path(params[:city_id]) %>
+<%= button_to "List of Locations for #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>

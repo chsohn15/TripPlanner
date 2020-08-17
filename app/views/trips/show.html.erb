@@ -1,14 +1,19 @@
 <h1><%= @trip.name %></h1>
 
-<div> Start Date: <%= @trip.start_date.strftime("%B %d, %Y") %></div>
-<div> End Date: <%= @trip.end_date.strftime("%B %d, %Y") %></div>
-<div> Average Rating: <%= @trip.average_rating.round(2) %></div>
-<div> Visited: </div>
-<ul>
-    <% @trip.locations.each do |location| %>
-        <li><%= "#{location.name} - #{location.city.name}" %></li>
-    <% end %>
-</ul>
+<div> <strong>Start Date: </strong> <%= @trip.start_date.strftime("%B %d, %Y") %></div><br>
+<div> <strong>End Date: </strong> <%= @trip.end_date.strftime("%B %d, %Y") %></div><br>
+<div> <strong>Average Rating: </strong> <%= @trip.average_rating.round(2) %></div><br>
 
-<div><%= link_to "Add Locations", countries_path %></div>
+<% if @trip.locations.any? %>
+    <div> <strong>Visited places: </strong> </div>
+    <ul>
+        <% @trip.locations.each do |location| %>
+            <li><%= "#{location.name} - #{location.city.name}" %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<br>
+
+<div><%= button_to "Add Locations", countries_path, method: :get %></div><br>
 <div><%= link_to "Edit Trip", edit_trip_path(@trip) %></div>
