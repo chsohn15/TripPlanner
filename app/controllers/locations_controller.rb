@@ -42,7 +42,6 @@ class LocationsController < ApplicationController
 
 
     def reviews
-        
     end
     
     private

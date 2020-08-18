@@ -1,8 +1,14 @@
 <h2> Edit stop </h2>
 
+<% if @trip_location.errors.any? %>
+    <%  @trip_location.errors.full_messages.each do |msg| %>
+        <%= msg %>
+    <% end %>
+<% end %>
+
 <%= form_for @trip_location, url: trip_trip_location_path, method: :patch do |f| %>
     <%= f.label :rating %>
-    <%= f.number_field :rating, {min: 1, max: 10} %>
+    <%= f.number_field :rating %>
     <%= f.label :review %>
     <%= f.text_field :review %>
     <%= f.submit "Update Stop" %>

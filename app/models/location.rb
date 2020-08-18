@@ -8,8 +8,8 @@ class Location < ApplicationRecord
     end
 
     def average_rating
+        if self.trip_locations.any?
         ratings = self.trip_locations.pluck(:rating)
-        if ratings.any?
             (ratings.sum.to_f/ratings.count).round(2)
         else 
             0
@@ -22,7 +22,7 @@ class Location < ApplicationRecord
 
     def reviews
         self.trip_locations.map do |trip_location|
-            trip_location.review + " - " + trip_location.trip.user.username
+            trip_location.review + " - " + trip_location.username
         end
     end
 
