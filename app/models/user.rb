@@ -16,10 +16,10 @@ class User < ApplicationRecord
         confirmation: true, 
         on: :create
     validates :password, 
-        presence: true, 
         length: { in: (5..12) }, 
         format: { with: PASSWORD_FORMAT }, 
         confirmation: true, 
+        allow_blank: true,
         on: :update 
 
     validates :username, uniqueness: {case_sensitive: false}
