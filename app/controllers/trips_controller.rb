@@ -1,11 +1,12 @@
 class TripsController < ApplicationController
-    
+    before_action :find_trip, only: [:show, :edit, :update, :destroy]
+
     def index
         @trips = Trip.where(user_id: session[:user_id]) 
     end
 
     def show
-        @trip = Trip.find(params[:id])
+        # @trip = Trip.find(params[:id])
     end
 
     def new
@@ -24,11 +25,11 @@ class TripsController < ApplicationController
     end
 
     def edit
-        @trip = Trip.find(params[:id])
+        # @trip = Trip.find(params[:id])
     end
 
     def update
-        @trip = Trip.find(params[:id])
+        # @trip = Trip.find(params[:id])
         @trip.assign_attributes(trip_params)
         if @trip.valid?
             @trip.save
@@ -38,9 +39,18 @@ class TripsController < ApplicationController
         end
     end
 
+    def destroy
+        @trip.delete
+        redirect_to trips_path
+    end
+
     private
 
     def trip_params
         params.require(:trip).permit(:name, :start_date, :end_date)
+    end
+
+    def find_trip
+        @trip = Trip.find(params[:id])
     end
 end
