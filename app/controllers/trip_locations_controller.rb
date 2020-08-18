@@ -3,7 +3,6 @@ class TripLocationsController < ApplicationController
     before_action :find_trip_location
 
     def show
-        # @trip_location = TripLocation.find(params[:id])
     end
     
     def edit
@@ -21,9 +20,13 @@ class TripLocationsController < ApplicationController
     end
 
     def destroy
-        @trip_location.delete
-        redirect_to trips_path
+        @trip = @trip_location.trip
+        @trip_location.destroy
+        redirect_to trip_path(@trip)
     end
+
+
+    private
 
     def find_trip_location
         @trip_location = TripLocation.find(params[:id])

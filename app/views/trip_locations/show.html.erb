@@ -6,3 +6,5 @@ Rating: <%= @trip_location.rating%><br>
 Review: <%= @trip_location.review%><br>
 
 <%= button_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %>
+<%= button_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %>
+
