@@ -4,4 +4,4 @@
 <p><%= @city.description %></p>
 
 
-<%= button_to "Search All Locations", city_locations_path(@city), method: :get %>
+<%= button_to "Explore #{@city.name}", city_locations_path(@city), method: :get %>
