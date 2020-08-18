@@ -1,10 +1,10 @@
 <h2><%= @trip_location.location.name%></h2>
 
-Trip: <%= @trip_location.trip.name%><br>
-Location: <%= @trip_location.location.name%><br>
-Rating: <%= @trip_location.rating%><br>
-Review: <%= @trip_location.review%><br>
+<strong>Trip name: </strong><%= @trip_location.trip.name%><br><br>
+<strong>Location: </strong><%= @trip_location.location.name%><br><br>
+<strong>Rating: </strong><%= @trip_location.rating%><br><br>
+<strong>Review: </strong><%= @trip_location.review%><br><br><br>
 
-<%= button_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %>
+<%= button_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %><br>
 <%= button_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %>
 
