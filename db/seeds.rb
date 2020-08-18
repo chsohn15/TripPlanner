@@ -147,25 +147,3 @@ end
 
 
 
-
-# 10.times do 
-#     Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: City.all.sample, category: "food")
-# end
-
-# 10.times do
-#     Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: City.all.sample, category: "outdoor")
-# end
-
-# 10.times do
-#     Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: City.all.sample, category: "hotel")
-# end
-
-
-
-
-# trip = Trip.create(name: "Trip to Fairfax", start_date: Date.parse("2018/05/10"), end_date: Date.parse("2018/05/24"))
-
-# 5.times do
-#     TripLocation.create(location: Location.all.sample, trip: trip, rating: rand(1..5))
-# end
-
