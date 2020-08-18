@@ -1,5 +1,27 @@
 class User < ApplicationRecord
+    PASSWORD_FORMAT = /\A
+    (?=.{5,})          # Must contain 5 or more characters
+    (?=.*\d)           # Must contain a digit
+    (?=.*[a-z])        # Must contain a lower case character
+    (?=.*[A-Z])        # Must contain an upper case character
+    (?=.*[[:^alnum:]]) # Must contain a symbol
+    /x
+
+    has_secure_password
     has_many :trips
+    validates :password, 
+        presence: true, 
+        length: { in: (5..12) }, 
+        format: { with: PASSWORD_FORMAT }, 
+        confirmation: true, 
+        on: :create
+    validates :password, 
+        presence: true, 
+        length: { in: (5..12) }, 
+        format: { with: PASSWORD_FORMAT }, 
+        confirmation: true, 
+        on: :update 
+
     validates :username, uniqueness: {case_sensitive: false}
     validates :username, :first_name, :last_name, :email, presence: true
 
