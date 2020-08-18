@@ -28,9 +28,10 @@
         <% end %>
     </ul>
     <% else %>
-        <%= "There is no  location listed in this city" %>
+        <%= "There are no locations listed in this city!" %><br>
 <% end %>
 
 
+<br>
 <div><%= button_to "Search in Another Location", countries_path, method: :get %></div>
 
