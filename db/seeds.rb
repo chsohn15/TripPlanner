@@ -36,20 +36,101 @@ City.destroy_all
 
 usa= Country.create(name: CS.countries[:US])
 
-CS.get(:us).each do |abbr, state_name|
-    State.create(name: state_name, country: usa)
-end
+states = ["Virginia","New York", "California", "Maine", "Washington"]
+states.each do |name|
+    State.create(name: name, country: usa)
 
 virginia = State.find_by(name: "Virginia")
 new_york = State.find_by(name: "New York")
 california = State.find_by(name: "California")
+maine = State.find_by(name: "Maine")
+washington = State.find_by(name: "Washington")
 
 va_city = ["Fairfax", "Springfield", "Centreville", "Chantilly", "Burke", "Richmond", "Charlottesville", "Leesburg"]
 va_city.each do |name|
     City.create(name: name, state: virginia)
 end
 
-ny_cities = []
+ny_cities = ["New York City", "Buffalo", "Syracuse", "Rochester", "Albany", "Brooklyn"]
+ny_cities.each do |name|
+    City.create(name: name, state: new_york)
+end
+
+cali_cities = ["Los Angeles", "San Diego", "San Jose", "San Francisco", "Fresno", "Sacramento", "Oakland"]
+cali_cities.each do |name|
+    City.create(name: name, state: california)
+end
+
+maine_cities = ["Portland", "Lewiston", "Bangor", "South Portland", "Auburn"]
+maine_cities.each do |name|
+    City.create(name: name, state: maine)
+end
+
+wa_cities = ["Seattle", "Spokane", "Tacoma", "Vancouver", "Everett", "Rainier", "Pasco"]
+wa_cities.each do |name|
+    City.create(name: name, state: washington)
+end
+
+
+south_korea = Country.create(name: "South Korea")
+
+a = CS.state(:KR)
+Hash[a.to_a[0,2]].each do |key, state_name|
+    State.create(name:state_name, country: south_korea)
+end
+
+
+seoul = State.find_by(name: "Seoul")
+busan = State.find_by(name: "Busan")
+
+seoul_cities = ["Dobong", "Dongdaemun", "Dongjak", "Eunpyeong"]
+seoul_cities.each do |name|
+    City.create(name: name, city: seoul)
+end
+
+busan_cities = ["Haeundae", "Busanjin", "Saha", "Buk"]
+busan_cities.each do |name|
+    City.create(name: name, city: seoul)
+end
+
+ethiopia = Country.create(name: "Ethiopia")
+
+e_states = ["Oromia", "Tigray", "Amhara"]
+e_states.each do |name|
+    State.create(name: name, country: ethiopia)
+end
+
+oromia = State.find_by(name: "Oromia")
+tigray = State.find_by(name: "Tigray")
+amhara = State.find_by(name: "Amhara")
+
+oromia_cities = ["Arsi", "Borena", "Jimma"]
+amhara_cities = ["Agew Awi", "North Gondar", "South Wollo"]
+tigray_cities = ["Mekelle", "Axum", "Adwa"]
+
+usa.states.each do |state|
+    state.cities.each do |city|
+
+        rand(3..10).times do
+            Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: city, category: "food", image_url = "https://picsum.photos/400")
+        end
+        rand(3..10).times do 
+            Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: city, category: "outdoor",image_url = "https://picsum.photos/400")
+        end
+        rand(1..3).times do 
+            Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: city, category: "hotel", image_url = "https://picsum.photos/400")
+        end
+        rand(1..3).times do
+            Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: city, category: "attraction", image_url = "https://picsum.photos/400")
+        end
+        rand(1..3).times do
+            Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: city, category: "business",image_url = "https://picsum.photos/400")
+        end
+        rand(1..3).times do
+            Location.create(name: "#{Faker::FunnyName.name} Store", address: Faker::Address.street_address, city: city, category: "shopping",image_url = "https://picsum.photos/400")
+        end
+    end
+end
 
 
 
@@ -67,13 +148,7 @@ ny_cities = []
 #     Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: City.all.sample, category: "hotel")
 # end
 
-# 10.times do
-#     Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: City.all.sample, category: "museum")
-# end
 
-# 10.times do
-#     Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: City.all.sample, category: "business")
-# end
 
 
 # trip = Trip.create(name: "Trip to Fairfax", start_date: Date.parse("2018/05/10"), end_date: Date.parse("2018/05/24"))
