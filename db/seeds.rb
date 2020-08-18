@@ -34,7 +34,7 @@ State.destroy_all
 City.destroy_all
 
 
-usa= Country.create(name: CS.countries[:US])
+usa = Country.create(name: CS.countries[:US])
 
 CS.get(:us).each do |abbr, state_name|
     State.create(name: state_name, country: usa)
@@ -45,8 +45,9 @@ new_york = State.find_by(name: "New York")
 california = State.find_by(name: "California")
 
 va_city = ["Fairfax", "Springfield", "Centreville", "Chantilly", "Burke", "Richmond", "Charlottesville", "Leesburg"]
+
 va_city.each do |name|
-    City.create(name: name, state: virginia)
+    City.create(name: name, state: virginia, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 
