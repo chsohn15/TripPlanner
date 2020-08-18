@@ -3,20 +3,21 @@
 <strong>Last Name:</strong><%= " #{@user.last_name}" %><br><br>
 <strong>Email Address:</strong><%= " #{@user.email}" %><br>
 
+<% if @user.trips.any? %>
+    <h4>Cities Visited:</h4>
+    <ul>
+        <% @user.cities.each do |city| %>
+            <li><%= city.name %></li>
+        <%end%>
+    </ul>
 
-<h4>Cities Visited:</h4>
-<ul>
-    <% @user.cities.each do |city| %>
-        <li><%= city.name %></li>
-    <%end%>
-</ul>
-
-<h4>Countries Visited: </h4>
-<ul>
-    <% @user.countries.each do |country|%>
-        <li><%= country.name %></li>
-    <%end %>
-</ul>
+    <h4>Countries Visited: </h4>
+    <ul>
+        <% @user.countries.each do |country|%>
+            <li><%= country.name %></li>
+        <%end %>
+    </ul>
+<%end %>
 
 <br><br>
 <%= button_to "My Trips", trips_path, method: :get %><br>

@@ -7,11 +7,11 @@
 
 <%= form_for @trip_location, url:city_location_path(@location), method: :patch do |f| %>
     <%= f.label :trip_id %>
-
-
     <%= f.collection_select :trip_id, @trips, :id, :name %>
-
     <%= f.label :rating %>
     <%= f.number_field :rating %>
     <%= f.submit "Add to Trip"%>
 <% end %>
+
+<br>
+<%= button_to "Create new trip", new_trip_path, method: :get %>
