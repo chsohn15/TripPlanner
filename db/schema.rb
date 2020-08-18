@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_184421) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "TripLocations"
     t.text "review"
   end
 
