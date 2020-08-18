@@ -41,11 +41,8 @@ State.destroy_all
 City.destroy_all
 User.destroy_all
 
-# usa = Country.create(name: CS.countries[:US])
+usa = Country.create(name: CS.countries[:US])
 
-# CS.get(:us).each do |abbr, state_name|
-#     State.create(name: state_name, country: usa)
-# end
 
 states = ["Virginia","New York", "California", "Maine", "Washington"]
 states.each do |name|
@@ -58,28 +55,29 @@ california = State.find_by(name: "California")
 maine = State.find_by(name: "Maine")
 washington = State.find_by(name: "Washington")
 
-# va_city.each do |name|
-#     City.create(name: name, state: virginia, description: Faker::Lorem.paragraph(sentence_count: 3))
-# end
+va_city = ["Fairfax", "Springfield", "Centreville", "Chantilly", "Burke", "Richmond", "Charlottesville", "Leesburg"]
+va_city.each do |name|
+    City.create(name: name, state: virginia, description: Faker::Lorem.paragraph(sentence_count: 3))
+end
 
 ny_cities = ["New York City", "Buffalo", "Syracuse", "Rochester", "Albany", "Brooklyn"]
 ny_cities.each do |name|
-    City.create(name: name, state: new_york)
+    City.create(name: name, state: new_york, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 cali_cities = ["Los Angeles", "San Diego", "San Jose", "San Francisco", "Fresno", "Sacramento", "Oakland"]
 cali_cities.each do |name|
-    City.create(name: name, state: california)
+    City.create(name: name, state: california, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 maine_cities = ["Portland", "Lewiston", "Bangor", "South Portland", "Auburn"]
 maine_cities.each do |name|
-    City.create(name: name, state: maine)
+    City.create(name: name, state: maine, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 wa_cities = ["Seattle", "Spokane", "Tacoma", "Vancouver", "Everett", "Rainier", "Pasco"]
 wa_cities.each do |name|
-    City.create(name: name, state: washington)
+    City.create(name: name, state: washington, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 
@@ -96,12 +94,12 @@ busan = State.find_by(name: "Busan")
 
 seoul_cities = ["Dobong", "Dongdaemun", "Dongjak", "Eunpyeong"]
 seoul_cities.each do |name|
-    City.create(name: name, state: seoul)
+    City.create(name: name, state: seoul, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 busan_cities = ["Haeundae", "Busanjin", "Saha", "Buk"]
 busan_cities.each do |name|
-    City.create(name: name, state: busan)
+    City.create(name: name, state: busan, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
 ethiopia = Country.create(name: "Ethiopia")
@@ -116,11 +114,11 @@ tigray = State.find_by(name: "Tigray")
 amhara = State.find_by(name: "Amhara")
 
 oromia_cities = ["Arsi", "Borena", "Jimma"]
-oromia_cities.each {|name| City.create(name: name, state: oromia)}
+oromia_cities.each {|name| City.create(name: name, state: oromia, description: Faker::Lorem.paragraph(sentence_count: 3))}
 amhara_cities = ["Agew Awi", "North Gondar", "South Wollo"]
-amhara_cities.each {|name| City.create(name: name, state: amhara)}
+amhara_cities.each {|name| City.create(name: name, state: amhara, description: Faker::Lorem.paragraph(sentence_count: 3))}
 tigray_cities = ["Mekelle", "Axum", "Adwa"]
-tigray_cities.each {|name| City.create(name: name, state: tigray)}
+tigray_cities.each {|name| City.create(name: name, state: tigray, description: Faker::Lorem.paragraph(sentence_count: 3))}
 
 usa.states.each do |state|
     state.cities.each do |city|
