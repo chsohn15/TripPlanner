@@ -6,9 +6,9 @@ class Trip < ApplicationRecord
 
 
     def average_rating
-        a = TripLocation.where(trip_id: self.id) 
-        if a.any?
-            a.pluck(:rating).sum/a.count.to_f
+        trip_location = TripLocation.where(trip_id: self.id) 
+        if trip_location.any?
+            trip_location.pluck(:rating).sum/trip_location.count.to_f
         else
             0
         end
