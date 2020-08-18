@@ -6,7 +6,7 @@
 <div> Visited: </div>
 <ul>
     <% @trip.locations.each do |location| %>
-        <li><%= "#{location.name} - #{location.city.name}" %></li>
+        <li><%= link_to "#{location.name} - #{location.city.name}", city_location_path(city_id: location.city, id:location)%></li>
     <% end %>
 </ul>
 
