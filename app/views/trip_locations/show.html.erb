@@ -1,8 +1,8 @@
-<h2>Stop</h2>
+<h2><%= @trip_location.location.name%></h2>
 
 Trip: <%= @trip_location.trip.name%><br>
 Location: <%= @trip_location.location.name%><br>
 Rating: <%= @trip_location.rating%><br>
 Review: <%= @trip_location.review%><br>
 
-<%= link_to 'Edit', edit_trip_trip_location_path(@trip_location) %>
+<%= button_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %>

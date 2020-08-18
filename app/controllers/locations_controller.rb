@@ -47,7 +47,7 @@ class LocationsController < ApplicationController
     end
 
     def t_l_params
-        params.require(:trip_location).permit(:trip_id, :rating)
+        params.require(:trip_location).permit(:trip_id, :rating, :review)
     end
 
     
