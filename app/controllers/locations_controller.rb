@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
     
-    before_action :find_location, only: [:show, :edit, :update, :destroy]
+    before_action :find_location, only: [:show, :edit, :update, :destroy, :reviews]
 
     
     def index
@@ -37,6 +37,11 @@ class LocationsController < ApplicationController
         else
             render :edit
         end
+        
+    end
+
+
+    def reviews
         
     end
     

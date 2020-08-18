@@ -1,0 +1,7 @@
+<h2> Reviews for <%= @location.name %> </h2>
+
+<ul>
+    <% @location.reviews.each do |review| %>
+        <li><%= review %><li><br>
+    <% end %>
+</ul>

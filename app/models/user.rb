@@ -40,7 +40,6 @@ class User < ApplicationRecord
     end
 
     def countries
-    
         countries = []
         self.cities.each do |city|
             countries << city.state.country

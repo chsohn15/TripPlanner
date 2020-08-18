@@ -20,5 +20,10 @@ class Location < ApplicationRecord
         self.trip_locations.count
     end
 
+    def reviews
+        self.trip_locations.map do |trip_location|
+            trip_location.review + " - " + trip_location.trip.user.username
+        end
+    end
 
 end

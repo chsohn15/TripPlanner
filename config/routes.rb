@@ -10,11 +10,12 @@ Rails.application.routes.draw do
     resources :locations, only: [:index, :show, :edit, :update]
   end
    
-  # resources :trips
   resources :trips do
     resources :trip_locations, except: [:index, :new, :create]
   end
   
+  get "/cities/:city_id/locations/:id/reviews", to: "locations#reviews", as: "city_location_reviews"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/login', to: "sessions#login"
   post '/login', to: "sessions#process_login"

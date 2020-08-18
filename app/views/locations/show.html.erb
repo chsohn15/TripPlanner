@@ -2,19 +2,26 @@
 <% if @location.image_url %>
     <%= image_tag(@location.image_url) %><br>
 <% end %>
+<br><br>
+<div><strong>Address:</strong><%= " #{@location.address}" %></div><br>
+<div><strong>City:</strong><%= " #{@location.city.name}" %></div><br>
+<div><strong>State:</strong><%= " #{@location.state_name}" %></div><br>
+<div><strong>Category:</strong><%= " #{@location.category}" %></div><br>
+<div><strong>Average Rating:</strong><%= " #{@location.average_rating}"%></div><br>
 
-<div><strong>Address:</strong><%= " #{@location.address}" %></div>
-<div><strong>City:</strong><%= " #{@location.city.name}" %></div>
-<div><strong>State:</strong><%= " #{@location.state_name}" %></div>
-<div><strong>Category:</strong><%= " #{@location.category}" %></div>
-<div><strong>Average Rating:</strong><%= " #{@location.average_rating}"%></div>
+<% if @location.reviews.any? %>
+    <div><strong>Reviews:</strong></div>
+        <ul>
+            <% @location.reviews.each do |review| %>
+                <li><%= review %></li><br>
+            <% end %>
+        </ul>
+<% end %>
+    
+<br>
+<%= button_to "All Locations at #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>
 
 <br>
-<br>
-
 <% if logged_in? %>  
     <%= button_to 'Add this location to trip', edit_city_location_path(@location), method: :get %> <br>
 <% end %>
-
-<br>
-<%= button_to "All Locations at #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>
