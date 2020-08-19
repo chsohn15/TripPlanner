@@ -14,8 +14,27 @@
  *= require_self
  */
 .title {
-    background-image: url("https://www.photopills.com/sites/default/files/articles/milky-way/milky-way-naveta.jpg");
-    height: 400px;
+    background-image: url("https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68");
+    background-repeat:no-repeat;
+    background-position: 65% 35%;
+    height: 300px;
+    text-align: center;
+}
+
+.welcome{
+    background-color: cornflowerblue;
+    width: 80%;
+    height: 30px;
+    text-align: left;
+    float: left;
+}
+
+.menu{
+    background-color: cornflowerblue;
+    width: 20%;
+    height: 30px;
+    text-align: right;
+    float: right;
 }
 
  .header {

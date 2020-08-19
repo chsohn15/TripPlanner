@@ -17,10 +17,12 @@
     <div class="header">
       <% unless params[:controller] == "sessions" &&  params[:action] == "login" %>
         <% if logged_in? %>
-          <strong> Welcome <%= current_user.display_name %></strong><br><br>
+          <div class= "welcome"><strong> Welcome <%= current_user.display_name %></strong></div>
+          <div class= "menu">
           <%= link_to "Home", home_path, method: :get %>       |
           <%= link_to "Logout", logout_path, method: :delete %>       |
-          <%= link_to "My Account", user_path(current_user), method: :get %><br><br>
+          <%= link_to "My Account", user_path(current_user), method: :get %>
+          </div>
         <% else %>
           <%= link_to "Home", home_path %>       |
           <%= link_to "Login", login_path %>       |
