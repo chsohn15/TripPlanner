@@ -6,14 +6,24 @@
     <%= select_tag(:sort_by, options_for_select(["Highest Rated", "Lowest Rated", "Most Visited", "Alphabetically (A-Z)"]), prompt: "#{params[:sort_by]}") %>
     <%= submit_tag "Search" %>
 <% end %>
-
-<ul>
-    <% @cities.each do |city| %>
-        <li><%= link_to city.name, city_path(city) %></li>
+<br><br>
+<table style="width:20%">
+  <tr>
+    <th>City Name</th>
+    <th>Average Rating</th>
+  </tr>
+  <% @cities.each do |city| %>
+    <tr>
+        <td><%= link_to city.name, city_path(city) %></td>
+        <td><%= city.average_rating %></td>
+    </tr>
     <% end %>
-</ul>
+</table>
 
-<br>
+ 
 
-<%= button_to "Country search", countries_path, method: :get %>
+
+<br><br>
+
+<%= button_to "Country Search", countries_path, method: :get %>
 

@@ -1,9 +1,25 @@
-<h3>All my trips</h3>
+<h3>My Trips</h3>
 
-<ul>
-    <% @trips.each do |trip| %>
-        <li><%= link_to trip.name, trip_path(trip) %></li>
-    <% end %>
-</ul>
+<table style="width:40%">
+    <tr>
+        <th>Trip Name</th>
+        <th>Average Rating</th>
+        <th>Number of Stops</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+<% @trips.each do |trip| %>
+    <tr>
+        <td><%= link_to trip.name, trip_path(trip) %></td>
+        <td><%= trip.average_rating %></td>
+        <td><%= trip.trip_locations.count %></td>
+    </tr>
+<% end %>
+</table>
 
-<%= button_to "Add new trip", new_trip_path, method: :get %>
+<br><br>
+
+<%= button_to "Add A New Trip", new_trip_path, method: :get %>
