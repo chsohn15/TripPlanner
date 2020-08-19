@@ -4,7 +4,6 @@ class User < ApplicationRecord
     (?=.*\d)           # Must contain a digit
     (?=.*[a-z])        # Must contain a lower case character
     (?=.*[A-Z])        # Must contain an upper case character
-    (?=.*[[:^alnum:]]) # Must contain a symbol
     /x
 
     has_secure_password

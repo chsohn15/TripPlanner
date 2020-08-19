@@ -124,25 +124,35 @@ usa.states.each do |state|
     state.cities.each do |city|
 
         rand(3..10).times do
-            Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: city, category: "food", image_url: "https://picsum.photos/400")
+            Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: city, category: "food", image_url: Faker::Company.logo)
         end
         rand(3..10).times do 
             Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: city, category: "outdoor",image_url: "https://picsum.photos/400")
         end
         rand(1..3).times do 
-            Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: city, category: "hotel", image_url: "https://picsum.photos/400")
+            Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: city, category: "hotel", image_url: Faker::Company.logo)
         end
         rand(1..3).times do
             Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: city, category: "attraction", image_url: "https://picsum.photos/400")
         end
         rand(1..3).times do
-            Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: city, category: "business",image_url: "https://picsum.photos/400")
+            Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: city, category: "business",image_url: Faker::Company.logo)
         end
         rand(1..3).times do
-            Location.create(name: "#{Faker::FunnyName.name} Store", address: Faker::Address.street_address, city: city, category: "shopping",image_url: "https://picsum.photos/400")
+            Location.create(name: "#{Faker::FunnyName.name} Store", address: Faker::Address.street_address, city: city, category: "shopping",image_url: Faker::Company.logo)
         end
     end
 end
+
+user = User.create(username: Faker::Name.first_name, password: "Test1", first_name: "test", last_name: "test", email: "test@email.com")
+trip = Trip.create(name: 'test', start_date: "2010/01/01", end_date: "2010/02/01", user: user)
+
+Location.all.each do |location|
+    rand(3..6).times do
+        TripLocation.create(trip: trip, location: location, rating: rand(1..10), review: Faker::Company.catch_phrase)
+    end
+end
+
 
 
 
