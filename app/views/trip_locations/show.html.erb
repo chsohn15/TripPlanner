@@ -6,5 +6,6 @@
 <strong>Review: </strong><%= @trip_location.review%><br><br><br>
 
 <%= button_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %><br>
+<%= button_to 'Back', trip_path(@trip_location.trip), method: :get %><br>
 <%= button_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %>
 
