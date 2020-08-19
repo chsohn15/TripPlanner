@@ -6,7 +6,6 @@ class TripLocationsController < ApplicationController
     end
     
     def edit
-        # @trip_location = TripLocation.find(params[:id])
     end
 
     def update
