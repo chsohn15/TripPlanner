@@ -24,6 +24,7 @@
           <%= link_to "My Account", user_path(current_user), method: :get %>
           </div>
         <% else %>
+          <br>
           <%= link_to "Home", home_path %>       |
           <%= link_to "Login", login_path %>       |
           <%= link_to "Create an Account", new_user_path %><br><br>       
