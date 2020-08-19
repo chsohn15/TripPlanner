@@ -25,10 +25,11 @@ class LocationsController < ApplicationController
 
     def edit
         @trips = Trip.where(user: current_user)
-        @trip_location = TripLocation.new
+        @trip_location = TripLocation.new(location: @location)
     end
     
     def update
+        @trips = Trip.where(user: current_user)
         @trip_location = TripLocation.new(location: @location)
         @trip_location.assign_attributes(t_l_params)
         if @trip_location.valid?

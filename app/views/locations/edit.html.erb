@@ -3,7 +3,7 @@
 
 <% if @trip_location.errors.any? %>
     <% @trip_location.errors.full_messages.each do |msg| %>
-        <%= msg %>
+        <%= msg %><br>
     <% end %>
 <% end %>
 

@@ -18,11 +18,11 @@
     <% unless params[:controller] == "sessions" &&  params[:action] == "login" %>
         <% if logged_in? %>
             <strong> Welcome <%= current_user.display_name %></strong><br><br>
-            <%= link_to "Home", countries_path, method: :get %>       |
+            <%= link_to "Home", home_path, method: :get %>       |
             <%= link_to "Logout", logout_path, method: :delete %>       |
             <%= link_to "My Account", user_path(current_user), method: :get %><br><br>
         <% else %>
-            <%= link_to "Home", countries_path %>       |
+            <%= link_to "Home", home_path %>       |
             <%= link_to "Login", login_path %>       |
             <%= link_to "Create an Account", new_user_path %><br><br>       
         <% end %>

@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
     validates :username, uniqueness: {case_sensitive: false}
     validates :username, :first_name, :last_name, :email, presence: true
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
     def display_name
         self.first_name + " " + self.last_name

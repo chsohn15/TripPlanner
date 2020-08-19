@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
-  get "/", to: "countries#index", as: "countries"
+  get "/", to: "countries#index", as: "home"
   resources :states, only: [:index]
   resources :states, only: [:show] do
     resources :cities, only: [:index]
