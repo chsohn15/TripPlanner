@@ -15,17 +15,17 @@
  */
 .title {
     background-image: url("https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68");
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-position: 65% 35%;
     height: 300px;
     text-align: center;
 }
 
-.title-content{
+.title-content {
     vertical-align: middle;
 }
 
-.welcome{
+.welcome {
     background-color: cornflowerblue;
     width: 80%;
     height: 30px;
@@ -33,7 +33,7 @@
     float: left;
 }
 
-.menu{
+.menu {
     background-color: cornflowerblue;
     width: 20%;
     height: 30px;
@@ -46,11 +46,12 @@
     text-align: right;
 }
 
- .header {
+.header {
     background-color: rgb(34, 255, 163);
     text-align: center;
 }
- .field_with_errors {
+
+.field_with_errors {
     color: red;
     display: inline;
 }
