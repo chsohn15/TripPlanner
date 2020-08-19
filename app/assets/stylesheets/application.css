@@ -40,6 +40,11 @@
     text-align: right;
     float: right;
 }
+.new{
+    background-color: cornflowerblue;
+    height: 30px;
+    text-align: right;
+}
 
  .header {
     background-color: rgb(34, 255, 163);
