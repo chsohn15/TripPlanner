@@ -21,6 +21,10 @@
     text-align: center;
 }
 
+.title-content{
+    vertical-align: middle;
+}
+
 .welcome{
     background-color: cornflowerblue;
     width: 80%;
