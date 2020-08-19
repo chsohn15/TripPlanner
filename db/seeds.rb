@@ -127,13 +127,13 @@ usa.states.each do |state|
             Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: city, category: "food", image_url: Faker::Company.logo)
         end
         rand(3..10).times do 
-            Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: city, category: "outdoor",image_url: "https://picsum.photos/400")
+            Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: city, category: "outdoor", image_url: "https://picsum.photos/400/200?random=1")
         end
         rand(1..3).times do 
             Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: city, category: "hotel", image_url: Faker::Company.logo)
         end
         rand(1..3).times do
-            Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: city, category: "attraction", image_url: "https://picsum.photos/400")
+            Location.create(name: "#{Faker::Name.name} Museum", address: Faker::Address.street_address, city: city, category: "attraction", image_url: Faker::Company.logo)
         end
         rand(1..3).times do
             Location.create(name: "#{Faker::FunnyName.name} Business", address: Faker::Address.street_address, city: city, category: "business",image_url: Faker::Company.logo)

@@ -13,45 +13,62 @@
  *= require_tree .
  *= require_self
  */
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
 .title {
-    background-image: url("https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68");
-    background-repeat: no-repeat;
-    background-position: 65% 35%;
-    height: 300px;
-    text-align: center;
+  background-image: url("https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68");
+  background-repeat: no-repeat;
+  background-position: 65% 35%;
+  height: 300px;
+  text-align: center;
 }
 
 .title-content {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .welcome {
-    background-color: cornflowerblue;
-    width: 80%;
-    height: 30px;
-    text-align: left;
-    float: left;
+  background-color: cornflowerblue;
+  width: 80%;
+  height: 30px;
+  text-align: left;
+  float: left;
 }
 
 .menu {
-    background-color: cornflowerblue;
-    width: 20%;
-    height: 30px;
-    text-align: right;
-    float: right;
+  background-color: cornflowerblue;
+  width: 20%;
+  height: 30px;
+  text-align: right;
+  float: right;
 }
-.new{
-    background-color: cornflowerblue;
-    height: 30px;
-    text-align: right;
+
+.new {
+  background-color: cornflowerblue;
+  height: 30px;
+  text-align: right;
 }
 
 .header {
-    background-color: rgb(34, 255, 163);
-    text-align: center;
+  background-color: rgb(34, 255, 163);
+  text-align: center;
 }
 
 .field_with_errors {
-    color: red;
-    display: inline;
+  color: red;
+  display: inline;
+}
+
+.new_user {
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+}
+
+.gallery {
 }

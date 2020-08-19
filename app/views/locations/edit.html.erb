@@ -8,7 +8,7 @@
 <% end %>
 
 
-<%= form_for @trip_location, url:city_location_path(@location), method: :patch do |f| %>
+<%= form_for @trip_location, url:city_location_path(@location), method: :patch, html:{class: "ui form"} do |f| %>
     <br><br>
     <%= f.label :trip_id %>
     <%= f.collection_select :trip_id, @trips, :id, :name %><br><br>
@@ -18,6 +18,5 @@
     <%= f.text_field :review %><br><br><br>
     <%= f.submit "Add to Trip"%>
 <% end %>
-
 <br>
 <%= button_to "Plan a New Trip!", new_trip_path, method: :get %>

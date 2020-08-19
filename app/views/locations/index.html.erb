@@ -21,12 +21,26 @@
 
 
 <% if @locations.any? %>
-    <div> Places: </div>
-    <ul>
+    <div> Places: </div><br>
+
+<div class="row">
+
         <% @locations.each do |location|%>
-            <li><%= link_to location.name, city_location_path(params[:city_id], location) %> </li>
+    <div class="column">
+            <div class="card" style="width: 20rem; height: 25rem; ">
+                <%= link_to image_tag(location.image_url, class:"card-img-top"), city_location_path(params[:city_id], location)%>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= link_to location.name, city_location_path(params[:city_id], location) %> </h5>
+            
+                    <p class="card-text">Address: <%= location.address %></p>
+                    <p class="card-text">Average Rating: <%= location.average_rating %></p>
+                </div>
+            </div>
+        </div>
         <% end %>
-    </ul>
+    </div>
+    
     <% else %>
         <%= "There are no locations listed in this city!" %><br>
 <% end %>
