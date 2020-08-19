@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.title {
+    background-image: url("https://www.photopills.com/sites/default/files/articles/milky-way/milky-way-naveta.jpg");
+    height: 400px;
+}
 
  .header {
     background-color: rgb(34, 255, 163);
