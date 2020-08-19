@@ -26,8 +26,12 @@
 <%= button_to "Add A New Trip", new_trip_path, method: :get %>
 
 <% else %>
-    <br><br><br><br><br><br>
-<%= button_to "No trips found, want to add one?", new_trip_path, method: :get %>
+
+    <br><br><br>
+    No trips found, want to add one?
+    <br><br><br>
+<%= button_to "Yes", new_trip_path, method: :get %>     |
+<%= button_to "No", user_path(current_user), method: :get %>
 <% end %>
 
 
