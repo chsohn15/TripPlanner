@@ -17,13 +17,14 @@
     <%= label_tag :category_business, "Business" %>
     <%= radio_button_tag("category", "all", checked = (params[:category] == "all"))%>
     <%= label_tag :category_business, "All" %>
-    <%= submit_tag "Sort By" %><br><br>
+    <button type="submit" class="btn btn-primary">Sort By</button>
 <% end %>
 
-<div style:"display: inline;">
-    <%= button_to "Search in Another City in #{@city.state.name}", state_cities_path(@city.state), method: :get %>
-    <%= button_to "Search in Another Country", home_path, method: :get%>
-<div>
+<div style:"margin-left: 50%;">
+
+    <button class="btn btn-outline-primary" type="button"><%= link_to "Search in Another City in #{@city.state.name}", state_cities_path(@city.state), method: :get %> </button>
+    <button class="btn btn-outline-primary" type="button"><%= link_to "Search in Another Country", home_path, method: :get%> </button>
+</div>
 <br><br>
 
 <% if @locations.any? %>

@@ -23,14 +23,21 @@
     </table>
 
     <br><br><br>
-<%= button_to "Add A New Trip", new_trip_path, method: :get %>
+    <button class="btn btn-outline-primary" type="button">
+        <%= link_to "Add A New Trip", new_trip_path, method: :get %>
+    </button>
 
 <% else %>
 
     <br><br><br>
     You Have No Trips! Would You Like to Create One?
     <br><br><br>
-<%= button_to "Yes", new_trip_path, method: :get %>
-<%= button_to "No", user_path(current_user), method: :get %>
-<% end %>
 
+    <button class="btn btn-outline-primary" type="button">
+        <%= link_to "Yes", new_trip_path, method: :get %>
+    </button>
+
+    <button class="btn btn-outline-primary" type="button">
+        <%= link_to "No", user_path(current_user), method: :get %>
+    </button>
+<% end %>

@@ -1,10 +1,10 @@
 
 <h1><%= "Cities in #{@state.name}" %></h1>
 
-<%= form_tag(state_cities_path(params[:state_id]), method: :get) do %>
+<%= form_tag(state_cities_path(params[:state_id]), {:class => "form-group", method: :get}) do %>
     <%= label_tag :sort_by, "Sort By"%>
     <%= select_tag(:sort_by, options_for_select(["Highest Rated", "Lowest Rated", "Most Visited", "Alphabetically (A-Z)"]), prompt: "#{params[:sort_by]}") %>
-    <%= submit_tag "Search" %>
+    <button type="submit" class="btn btn-primary">Search</button>
 <% end %>
 <br><br>
 <table>
@@ -23,5 +23,6 @@
 
 <br><br>
 
-<%= button_to "Country Search", home_path, method: :get %>
 
+
+<button class="btn btn-outline-primary" type="button"> <%= link_to "Country Search", home_path, method: :get %> </button>

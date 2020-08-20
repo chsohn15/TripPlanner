@@ -21,6 +21,10 @@
   margin-left: 10px;
 }
 
+.link_to {
+  color: black;
+}
+
 .content {
   margin-top: 50px;
   margin-left: auto;

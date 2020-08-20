@@ -1,14 +1,20 @@
 <h1><%= @location.name%></h1>
 
 <div style="margin-left: 60%;">
-    <%= button_to "All Locations at #{@location.city.name}", city_locations_path(params[:city_id]), method: :get %>
+    
+
+<button class="btn btn-outline-primary" type="button">
+    <%= link_to "All Locations at #{@location.city.name}", city_locations_path(params[:city_id]), method: :get %>
+</button>
 
     <% if logged_in? %>  
-        <%= button_to 'Add This to My Trip', edit_city_location_path(@location), method: :get %> <br>
+        <button class="btn btn-outline-primary" type="button">
+            <%= link_to 'Add This to My Trip', edit_city_location_path(@location), method: :get %>
+        </button>
     <% end %>
 </div>
 
-<br>
+<br><br>
 
     <div style="float: right;">
         <% if @location.image_url %>

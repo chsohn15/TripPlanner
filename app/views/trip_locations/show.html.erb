@@ -7,12 +7,6 @@
 
 
 
-<%= button_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %>
-<%= button_to 'Back', trip_path(@trip_location.trip), method: :get %>
-<%= button_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %>
-</>
- 
-
-
-
-
+<button class="btn btn-outline-primary" type="button"> <%= link_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %> </button>
+<button class="btn btn-outline-info" type="button"> <%= link_to 'Back', trip_path(@trip_location.trip), method: :get %> </button>
+<button class="btn btn-outline-danger" type="button"> <%= link_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %> </button>
