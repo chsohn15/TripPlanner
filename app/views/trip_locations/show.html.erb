@@ -9,3 +9,4 @@
 <%= button_to 'Back', trip_path(@trip_location.trip), method: :get %><br>
 <%= button_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %>
 
+<a href="#{trip_trip_location_path(@trip_location)}", {confirm:"Are you sure?"} button type="button" class="btn btn-danger">Delete </a>
