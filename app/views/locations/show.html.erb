@@ -19,7 +19,7 @@
 <% end %>
     
 <br>
-<%= button_to "All Locations at #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>
+<%= button_to "All Locations at #{@location.city.name}", city_locations_path(params[:city_id]), method: :get %>
 
 <br>
 <% if logged_in? %>  

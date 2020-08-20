@@ -1,6 +1,7 @@
 <h1><%= "Places to Visit in #{@city.name}" %></h1>
 
 
+
 <%= form_tag(city_locations_path(params[:city_id]), method: :get) do %>
     <%= radio_button_tag("category", "food", checked = (params[:category] == "food"))%>
     <%= label_tag :category_food, "Food" %>
@@ -16,8 +17,13 @@
     <%= label_tag :category_business, "Business" %>
     <%= radio_button_tag("category", "all", checked = (params[:category] == "all"))%>
     <%= label_tag :category_business, "All" %>
-    <%= submit_tag "Search" %><br><br>
+    <%= submit_tag "Sort By" %><br><br>
 <% end %>
+
+<div style:"display: inline;">
+    <%= button_to "Search in Another City in New York", state_cities_path(@city.state), method: :get %>
+    <%= button_to "Search in Another Country", home_path, method: :get%>
+<div>
 
 
 <% if @locations.any? %>
@@ -27,9 +33,9 @@
 
         <% @locations.each do |location|%>
     <div class="column">
-            <div class="card" style="width: 20rem; height: 25rem; ">
+            <div class="card" style="width: 15rem; height: 20rem; ">
                 <%= link_to image_tag(location.image_url, class:"card-img-top"), city_location_path(params[:city_id], location)%>
-                <div class="card-body">
+                <div class="card-body" style="position: absolute; bottom: 0;">
                     <h5 class="card-title">
                         <%= link_to location.name, city_location_path(params[:city_id], location) %> </h5>
             

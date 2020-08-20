@@ -28,9 +28,9 @@
 <% else %>
 
     <br><br><br>
-    No trips found, want to add one?
+    You Have No Trips! Would You Like to Create One?
     <br><br><br>
-<%= button_to "Yes", new_trip_path, method: :get %>     |
+<%= button_to "Yes", new_trip_path, method: :get %>
 <%= button_to "No", user_path(current_user), method: :get %>
 <% end %>
 
