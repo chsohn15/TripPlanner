@@ -127,7 +127,7 @@ usa.states.each do |state|
             Location.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, city: city, category: "food", image_url: Faker::Company.logo)
         end
         rand(3..10).times do 
-            Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: city, category: "outdoor", image_url: "https://picsum.photos/400/200?random=1")
+            Location.create(name: "#{Faker::Verb.base.capitalize} Park", address: Faker::Address.street_address, city: city, category: "outdoor", image_url: "https://picsum.photos/600/400?random=1")
         end
         rand(1..3).times do 
             Location.create(name: "#{Faker::Name.first_name} Hotel", address: Faker::Address.street_address, city: city, category: "hotel", image_url: Faker::Company.logo)
@@ -144,12 +144,17 @@ usa.states.each do |state|
     end
 end
 
-user = User.create(username: Faker::Name.first_name, password: "Test1", first_name: "test", last_name: "test", email: "test@email.com")
-trip = Trip.create(name: 'test', start_date: "2010/01/01", end_date: "2010/02/01", user: user)
+10.times do
+    User.create(username: Faker::Name.unique.first_name, password: "Test1", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "test@email.com")
+end
+
+5.times do
+    Trip.create(name: 'test', start_date: "2010/01/01", end_date: "2010/02/01", user: User.all.sample)
+end
 
 Location.all.each do |location|
     rand(3..6).times do
-        TripLocation.create(trip: trip, location: location, rating: rand(1..10), review: Faker::Company.catch_phrase)
+        TripLocation.create(trip: Trip.all.sample, location: location, rating: rand(1..10), review: Faker::Company.catch_phrase)
     end
 end
 

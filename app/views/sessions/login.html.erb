@@ -1,14 +1,16 @@
-<h1>Login</h1>
+<div style="margin-left: auto; margin-right: auto; width: 50%;">
+    <h1>Login</h1>
 
-<div class="error"> <%= flash[:login_error] %></div>
+    <div class="error"> <%= flash[:login_error] %></div>
 
-<%= form_tag login_path do  %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %><br><br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password%><br><br>
-    <%= submit_tag "Log In" %>
-<% end %>
+    <br>
+    <%= form_tag(login_path, {:class => "form-group"}) do  %>
+        <%= label_tag :username %>
+        <%= text_field_tag :username, nil, class: "form-controll" %><br><br>
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, class: "form-controll" %><br>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    <% end %>
 
-<br>
-<%= button_to "Create Account", new_user_path, method: :get %>
+    <%= button_to "Create Account", new_user_path, method: :get %>
+</div>
