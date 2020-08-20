@@ -1,22 +1,21 @@
 
 <h4><%= "Add #{@location.name} to My Trip!"%></h4>
 
+<div style="margin-left: 90% ;"><%= button_to "Plan a New Trip!", new_trip_path, method: :get %></div>
+<br>
 <% if @trip_location.errors.any? %>
     <% @trip_location.errors.full_messages.each do |msg| %>
         <%= msg %><br>
     <% end %>
 <% end %>
 
-
-<%= form_for @trip_location, url:city_location_path(@location), method: :patch, html:{class: "ui form"} do |f| %>
-    <br><br>
-    <%= f.label :trip_id %>
-    <%= f.collection_select :trip_id, @trips, :id, :name %><br><br>
-    <%= f.label :rating %>
-    <%= f.number_field :rating, {min: 1, max: 10} %><br><br>
-    <%= f.label :review %>
-    <%= f.text_field :review %><br><br><br>
-    <%= f.submit "Add to Trip"%>
-<% end %>
 <br>
-<%= button_to "Plan a New Trip!", new_trip_path, method: :get %>
+<%= form_for @trip_location, url:city_location_path(@location), method: :patch, class: "form-group"  do |f| %>
+    <%= f.label :trip_id %>
+    <%= f.collection_select :trip_id, @trips, :id, :name, class: "form-control" %><br>
+    <%= f.label :rating %>
+    <%= f.number_field :rating, {min: 1, max: 10, class: "form-control"} %>
+    <%= f.label :review %>
+    <%= f.text_field :review, class: "form-control" %><br>
+    <button type="submit" class="btn btn-primary">Add to Trip</button>
+<% end %>

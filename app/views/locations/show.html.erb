@@ -1,16 +1,22 @@
-<h1><%= @location.name%></h1><br><br>
+<h1><%= @location.name%></h1>
 
-<div>
+<div style="margin-left: 60%;">
+    <%= button_to "All Locations at #{@location.city.name}", city_locations_path(params[:city_id]), method: :get %>
 
-    <div style="display: inline;">
+    <% if logged_in? %>  
+        <%= button_to 'Add This to My Trip', edit_city_location_path(@location), method: :get %> <br>
+    <% end %>
+</div>
+
+<br>
+
+    <div style="float: right;">
         <% if @location.image_url %>
-            <div><%= image_tag(@location.image_url) %></div>
+            <div><%= image_tag(@location.image_url, size: "650x300") %></div>
         <% end %>
     </div>
 
-    <br><br>
-    
-    <div>
+    <div style="clear: right; display: inline; width: auto;">
         <div><strong>Address:</strong><%= " #{@location.address}" %></div><br>
         <div><strong>City:</strong><%= " #{@location.city.name}" %></div><br>
         <div><strong>State:</strong><%= " #{@location.state_name}" %></div><br>
@@ -29,16 +35,14 @@
                     <%= @location.trip_locations.find_all { |t| t.rating < 5 }.count %>
                 </div>
             </div>
+    
         </div>
-
     </div>
 
     
-</div>
-
 
 <% if @location.reviews.any? %>
-    <div style="margin-top: 20px"><strong>Reviews:</strong></div><br>
+    <div style="margin-top: 50px"><strong>Reviews:</strong></div><br>
         <ul>
             <% @location.reviews.each do |review| %>
                 <li><%= review %></li><br>
@@ -46,11 +50,6 @@
         </ul>
 <% end %>
     
+    
 
-<br>
-<%= button_to "All Locations at #{@location.city.name} city", city_locations_path(params[:city_id]), method: :get %>
 
-<br>
-<% if logged_in? %>  
-    <%= button_to 'Add This to My Trip', edit_city_location_path(@location), method: :get %> <br>
-<% end %>

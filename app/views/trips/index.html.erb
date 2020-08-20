@@ -15,7 +15,7 @@
         </tr>
     <% @trips.each do |trip| %>
         <tr>
-            <td><%= link_to trip.name, trip_path(trip) %></td>
+            <td style="text-align: left;"><%= link_to trip.name, trip_path(trip) %></td>
             <td><%= trip.average_rating %></td>
             <td><%= trip.trip_locations.count %></td>
         </tr>
@@ -33,5 +33,4 @@
 <%= button_to "Yes", new_trip_path, method: :get %>
 <%= button_to "No", user_path(current_user), method: :get %>
 <% end %>
-
 
