@@ -30,7 +30,7 @@
 
     <% else %>
 
-        <div style="width: 60%; margin-left:auto; margin-right:auto;">
+        <div style="width: 80%; margin-left:auto; margin-right:auto;">
         <button class="btn btn-outline-primary" style= "float:right; margin-left: 5px;" type="button">
         <%= link_to "No", user_path(current_user), method: :get %>
         </button>
@@ -38,7 +38,8 @@
         <button class="btn btn-outline-primary" style= "float:right;" type="button">
         <%= link_to "Yes", new_trip_path, method: :get %>
         </button>
-            <h5>You Have No Trips! Would You Like to Create One?</h5>
+            <h5>You Have No Trips!</h5>
+            <h5>Would You Like to Create One?</h5>
 
         </div>
     <% end %>
