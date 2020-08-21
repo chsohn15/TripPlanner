@@ -6,8 +6,8 @@
 <ul>
     
     <li><strong>Number of Users:</strong> <%= User.count %></li>
-    <li><strong>Most Visited Country:</strong> <%= Country.count %></li>
-    <li><strong>Most Visited City:</strong></li>
+    <li><strong>Most Visited Country:</strong> <%= Country.most_visited_country.name %></li>
+    <li><strong>Most Visited City:</strong> <%= "#{City.most_visited_city.name}, #{City.most_visited_city.state.name}" %></li>
 </ul>
     
 

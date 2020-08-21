@@ -11,6 +11,10 @@ class City < ApplicationRecord
         end
    end
 
+   def self.most_visited_city
+       City.all.max_by{|city| city.total_visits}
+   end
+
    def total_visits
     self.locations.map{|location| location.num_of_visits}.sum
    end
