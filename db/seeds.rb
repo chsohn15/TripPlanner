@@ -56,6 +56,7 @@ maine = State.find_by(name: "Maine")
 washington = State.find_by(name: "Washington")
 
 va_city = ["Fairfax", "Springfield", "Centreville", "Chantilly", "Burke", "Richmond", "Charlottesville", "Leesburg"]
+
 va_city.each do |name|
     City.create(name: name, state: virginia, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
@@ -80,6 +81,9 @@ wa_cities.each do |name|
     City.create(name: name, state: washington, description: Faker::Lorem.paragraph(sentence_count: 3))
 end
 
+City.all.each do |city|
+    city.update(description: "Discover an essential chapter of America's history in the cobblestone streets, river walks and monuments of #{city.name}. Originally a colonial settlement, #{city.name} is now a thriving hub for culture, shopping and outdoor fun. Explore Civil War history at the American Civil War Museum, stroll along the canal downtown or test your nerve whitewater rafting on the James River. With lively neighborhoods and a vibrant restaurant scene, #{city.name} is perfect for a quick break or an extended getaway.")
+end
 
 south_korea = Country.create(name: "South Korea")
 
