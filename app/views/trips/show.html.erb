@@ -1,23 +1,28 @@
-<h1><%= @trip.name %></h1>
+<div style="margin-left:auto; margin-right: auto; width: 75%;">
+    <div style="float:right; margin-top:8px;">
+        <button type="button" class= "btn btn-outline-primary" ><%= link_to "Add Locations", home_path, method: :get %></button>
+        <button type="button" class= "btn btn-outline-primary" ><%= link_to "All Trips", trips_path, method: :get %></button>
+        <button type="button" class= "btn btn-outline-primary" ><%= link_to "Edit Trip", edit_trip_path(@trip), method: :get %></button>
+        <button type="button" class= "btn btn-outline-primary" ><%= link_to "Delete Trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%></button>
+    </div>
+    <h1><%= @trip.name %></h1><br><br>
 
-<div> <strong>Start Date: </strong> <%= @trip.start_date.strftime("%B %d, %Y") %></div><br>
-<div> <strong>End Date: </strong> <%= @trip.end_date.strftime("%B %d, %Y") %></div><br>
-<div> <strong>Average Rating: </strong> <%= @trip.average_rating.round(2) %></div><br>
+    <div style="float: left;">
+        <strong>Start Date: </strong> <%= @trip.start_date.strftime("%B %d, %Y") %><br><br>
+        <strong>End Date: </strong> <%= @trip.end_date.strftime("%B %d, %Y") %><br><br>
+        <strong>Average Rating: </strong> <%= @trip.average_rating.round(2) %><br><br>
+    </div>
 
-<% if @trip.trip_locations.any? %>
-    <div> <strong>Visited places: </strong> </div>
-    <ul>
-        <% @trip.trip_locations.each do |trip_location| %>
-            <li><%= link_to "#{trip_location.location.name} - #{trip_location.location.city.name}", trip_trip_location_path(@trip, trip_location) %></li>
+    <div style= "float:right; margin-right: 20%;">
+        <% if @trip.trip_locations.any? %>
+            <div> <strong>Places Visited: </strong> </div>
+            <ul>
+                <% @trip.trip_locations.each do |trip_location| %>
+                    <li><%= link_to "#{trip_location.location.name} - #{trip_location.location.city.name}", trip_trip_location_path(@trip, trip_location) %></li>
 
 
+                <% end %>
+            </ul>
         <% end %>
-    </ul>
-<% end %>
-
-<br>
-
-<div><%= button_to "Add Locations", home_path, method: :get %></div>
-<div><%= button_to "All Trips", trips_path, method: :get %></div>
-<div><%= button_to "Edit Trip", edit_trip_path(@trip), method: :get %></div>
-<div><%= button_to "Delete Trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%></div>
+    </div>
+</div>

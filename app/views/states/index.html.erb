@@ -1,9 +1,10 @@
 
-
-<strong><%= "Select a state in #{Country.find(params[:country_id]).name}" %></strong>
+<div style="margin-left: auto; margin-right:auto; width: 30%">
+<strong><%= "Select a State in #{Country.find(params[:country_id]).name}" %></strong>
 
 <ul>
     <% @states.each do |state| %>
         <li><%= link_to state.name, state_cities_path(state) %></li>
     <% end %>
 </ul>
+</div>

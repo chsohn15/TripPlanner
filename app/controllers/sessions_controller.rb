@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def login
+        
     end
 
     def process_login

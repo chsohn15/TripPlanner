@@ -1,12 +1,17 @@
-<h2><%= @trip_location.location.name%></h2>
-
-<strong>Trip name: </strong><%= @trip_location.trip.name%><br><br>
-<strong>Location: </strong><%= @trip_location.location.name%><br><br>
-<strong>Rating: </strong><%= @trip_location.rating%><br><br>
-<strong>Review: </strong><%= @trip_location.review%><br><br><br>
-
-
-
-<button class="btn btn-outline-primary" type="button"> <%= link_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %> </button>
-<button class="btn btn-outline-info" type="button"> <%= link_to 'Back', trip_path(@trip_location.trip), method: :get %> </button>
-<button class="btn btn-outline-danger" type="button"> <%= link_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %> </button>
+<div style="width: 60%; margin-left: auto; margin-right:auto;">
+    <div style="float:left; font-size: 36px;">
+    <%= link_to "#{@trip_location.location.name}", city_location_path(@trip_location.location.city, @trip_location.location) %></h2>
+    </div>
+    <div style="float:right; margin-right: 10%; margin-top: 1%;">
+        <button class="btn btn-outline-primary" type="button"> <%= link_to 'Edit', edit_trip_trip_location_path(@trip_location), method: :get %> </button>
+        <button class="btn btn-outline-info" type="button"> <%= link_to 'Back', trip_path(@trip_location.trip), method: :get %> </button>
+        <button class="btn btn-outline-danger" type="button"> <%= link_to 'Delete This Stop', trip_trip_location_path(@trip_location), method: :delete, data: {confirm:"Are you sure?"} %> </button>
+    </div>
+    <br><br><br>
+    <div>
+        <strong>Trip name: </strong><%= @trip_location.trip.name%><br><br>
+        <strong>Location: </strong><%= @trip_location.location.name%><br><br>
+        <strong>Rating: </strong><%= @trip_location.rating%><br><br>
+        <strong>Review: </strong><%= @trip_location.review%><br><br><br>
+    </div>
+</div>

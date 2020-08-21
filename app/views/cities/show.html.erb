@@ -1,3 +1,5 @@
+
+<div style="margin-left: 15%;">
 <h1>About <%= @city.name %></h1>
 
 <p><%= @city.description %></p>
@@ -6,3 +8,5 @@
 
 
 <button class="btn btn-outline-primary" type="button"> <%= link_to "Explore #{@city.name}", city_locations_path(@city), method: :get %> </button>
+
+</div>

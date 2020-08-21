@@ -1,8 +1,11 @@
 
+<div style="float: right; margin-right:25%;">
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Plan a New Trip!", new_trip_path, method: :get %></button>
+</div>
+<div style="margin-left:auto; margin-right:auto; width: 50%;">
 <h4><%= "Add #{@location.name} to My Trip!"%></h4>
 
-<div style="margin-left: 90% ;"><%= button_to "Plan a New Trip!", new_trip_path, method: :get %></div>
-<br>
+
 <% if @trip_location.errors.any? %>
     <% @trip_location.errors.full_messages.each do |msg| %>
         <%= msg %><br>
@@ -11,11 +14,12 @@
 
 <br>
 <%= form_for @trip_location, url:city_location_path(@location), method: :patch, class: "form-group"  do |f| %>
-    <%= f.label :trip_id %>
-    <%= f.collection_select :trip_id, @trips, :id, :name, class: "form-control" %><br>
+    <%= f.label :trip_id, "Trip" %>
+    <span style="margin-left: 20px;"><%= f.collection_select :trip_id, @trips, :id, :name, class: "form-control", prompt: "Select One of Your Trips" %></span><br>
     <%= f.label :rating %>
     <%= f.number_field :rating, {min: 1, max: 10, class: "form-control"} %>
     <%= f.label :review %>
-    <%= f.text_field :review, class: "form-control" %><br>
+    <%= f.text_field :review, class: "form-control"%><br>
     <button type="submit" class="btn btn-primary">Add to Trip</button>
 <% end %>
+</div>

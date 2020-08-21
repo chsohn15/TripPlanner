@@ -1,28 +1,30 @@
 
-<h1><%= "Cities in #{@state.name}" %></h1>
+<span>
+<button class="btn btn-outline-primary" style="float: right;" type="button"> <%= link_to "Search in a Different Country", home_path, method: :get %> </button>
+</span>
 
-<%= form_tag(state_cities_path(params[:state_id]), {:class => "form-group", method: :get}) do %>
-    <%= label_tag :sort_by, "Sort By"%>
-    <%= select_tag(:sort_by, options_for_select(["Highest Rated", "Lowest Rated", "Most Visited", "Alphabetically (A-Z)"]), prompt: "#{params[:sort_by]}") %>
-    <button type="submit" class="btn btn-primary">Search</button>
-<% end %>
-<br><br>
-<table>
-  <tr>
-    <th>City Name</th>
-    <th>Average Rating</th>
-  </tr>
-  <% @cities.each do |city| %>
+
+<div style= "margin-left: 30%;">
+<h1><%= "Cities in #{@state.name}" %></h1><br>
+  <%= form_tag(state_cities_path(params[:state_id]), {:class => "form-group", method: :get}) do %>
+      <%= label_tag :sort_by, "Sort By"%>
+      <%= select_tag(:sort_by, options_for_select(["Highest Rated", "Lowest Rated", "Most Visited", "Alphabetically (A-Z)"]), prompt: "#{params[:sort_by]}") %>
+      <button type="submit" class="btn btn-primary">Search</button>
+  <% end %>
+
+  <table>
     <tr>
-        <td style="text-align: left;"><%= link_to city.name, city_path(city) %></td>
-        <td><%= city.average_rating %></td>
+      <th>City Name</th>
+      <th>Average Rating</th>
     </tr>
-    <% end %>
-</table>
+    <% @cities.each do |city| %>
+      <tr>
+          <td style="text-align: left;"><%= link_to city.name, city_path(city) %></td>
+          <td><%= city.average_rating %></td>
+      </tr>
+      <% end %>
+  </table>
+</div>
 
 
-<br><br>
 
-
-
-<button class="btn btn-outline-primary" type="button"> <%= link_to "Country Search", home_path, method: :get %> </button>

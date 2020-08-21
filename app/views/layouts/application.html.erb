@@ -35,20 +35,13 @@
               <%= link_to "My Account", user_path(current_user), method: :get %>
             </div>
           </div>
-        <% elsif !logged_in? %>
+        <% else %>
           <div class = "new" style ="margin-right: 20px;">
           <%= link_to "Home", home_path %>       |
           <%= link_to "Login", login_path %>       |
           <%= link_to "Create an Account", new_user_path %><br><br>       
           </div>
         <% end %>
-      <% end %>
-      <% if params[:controller] == "sessions" && params[:action]= "login"%>
-        <div class = "new" style ="margin-right: 20px;">
-        <%= link_to "Home", home_path %>       |
-        <%= link_to "Login", login_path %>       |
-        <%= link_to "Create an Account", new_user_path %><br><br>       
-        </div>
       <% end %>
     </div>
     <div class="content"><%= yield %></div>
