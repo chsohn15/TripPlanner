@@ -4,7 +4,7 @@
 </span>
 
 
-<div style= "margin-left: 30%;">
+<div style= "margin-left: auto; margin-right: auto; width: 60%;">
 <h2><%= "Cities in #{@state.name}" %></h2><br>
   <%= form_tag(state_cities_path(params[:state_id]), {:class => "form-group", method: :get}) do %>
       <%= label_tag :sort_by, "Sort By"%>
@@ -12,10 +12,10 @@
       <button type="submit" class="btn btn-primary">Search</button>
   <% end %>
 
-  <table>
+  <table style="width: 60%">
     <tr>
       <th>City Name</th>
-      <th>Average Rating</th>
+      <th style="width: 45%; text-align: center;">Average Rating</th>
     </tr>
     <% @cities.each do |city| %>
       <tr>

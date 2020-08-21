@@ -14,8 +14,7 @@
  *= require_self
  */
 
-
- .button_to {
+.button_to {
   float: left;
   width: auto;
   display: inline;
@@ -34,21 +33,20 @@
 }
 
 .title {
-  background-image: url("https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68");
+  background-image: url("https://ultrawidewallpapers.com/wp-content/uploads/2015/07/new-york-city-skyline.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: 65% 35%;
-  height: 180px;
-  text-align: center;
-  
+  background-position: 60% 40%;
+  height: 250px;
+  text-align: left;
 }
 
 .title-content {
   vertical-align: left;
-
 }
 
 .welcome {
-  background-color: skyblue;
+  background-color: beige;
   width: 75%;
   height: 30px;
   text-align: left;
@@ -56,7 +54,7 @@
 }
 
 .menu {
-  background-color: skyblue;
+  background-color: beige;
   width: 25%;
   height: 30px;
   text-align: right;
@@ -67,11 +65,10 @@
   background-color: skyblue;
   height: 30px;
   text-align: right;
-  
 }
 
 .header {
-  background-color:skyblue;
+  background-color: skyblue;
   text-align: center;
 }
 
@@ -86,4 +83,5 @@
   width: 65%;
 }
 
-.gallery {}
+.gallery {
+}
