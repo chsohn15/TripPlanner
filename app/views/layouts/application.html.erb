@@ -27,7 +27,7 @@
         <% if logged_in? %>
           <div class= "welcome">
             <div style= "margin-left: 20px;"><strong> Welcome <%= current_user.display_name %></strong></div>
-            </div>
+          </div>
           <div class= "menu">
             <div style= "margin-right: 20px;">
               <%= link_to "Home", home_path, method: :get %>       |
@@ -38,13 +38,13 @@
           </div>
         <% else %>
           <div class = "new" style ="margin-right: 20px;">
-          <%= link_to "Home", home_path %>       |
-          <%= link_to "Login", login_path %>       |
-          <%= link_to "Create an Account", new_user_path %><br><br>       
+            <%= link_to "Home", home_path %>       |
+            <%= link_to "Login", login_path %>       |
+            <%= link_to "Create an Account", new_user_path %><br><br>       
           </div>
         <% end %>
       <% end %>
     </div>
-    <div class="content"><%= yield %></div>
+  <div class="content"><%= yield %></div>
   </body>
 </html>

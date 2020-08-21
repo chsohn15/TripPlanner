@@ -14,7 +14,8 @@
  *= require_self
  */
 
-.button_to {
+
+ .button_to {
   float: left;
   width: auto;
   display: inline;
