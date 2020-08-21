@@ -64,10 +64,11 @@
   background-color: skyblue;
   height: 30px;
   text-align: right;
+  
 }
 
 .header {
-  background-color: rgb(34, 255, 163);
+  background-color:skyblue;
   text-align: center;
 }
 
