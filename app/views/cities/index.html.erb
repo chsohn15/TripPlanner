@@ -5,7 +5,7 @@
 
 
 <div style= "margin-left: 30%;">
-<h1><%= "Cities in #{@state.name}" %></h1><br>
+<h2><%= "Cities in #{@state.name}" %></h2><br>
   <%= form_tag(state_cities_path(params[:state_id]), {:class => "form-group", method: :get}) do %>
       <%= label_tag :sort_by, "Sort By"%>
       <%= select_tag(:sort_by, options_for_select(["Highest Rated", "Lowest Rated", "Most Visited", "Alphabetically (A-Z)"]), prompt: "#{params[:sort_by]}") %>
