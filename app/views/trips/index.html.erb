@@ -1,43 +1,45 @@
-<% if @trips.any? %>
-    <br>
-    <h3>My Trips</h3>
+<div style="margin-left:auto; margin-right: auto; width: 50%;">
+    <% if @trips.any? %>
+        <br>
+        <h3>My Trips</h3>
 
-    <table style="width:40%">
-        <tr>
-            <th>Trip Name</th>
-            <th>Average Rating</th>
-            <th>Number of Stops</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    <% @trips.each do |trip| %>
-        <tr>
-            <td style="text-align: left;"><%= link_to trip.name, trip_path(trip) %></td>
-            <td><%= trip.average_rating %></td>
-            <td><%= trip.trip_locations.count %></td>
-        </tr>
+        <table>
+            <tr>
+                <th>Trip Name</th>
+                <th style="margin-left: 10px;">Average Rating</th>
+                <th style="margin-left: 10px;">Number of Stops</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        <% @trips.each do |trip| %>
+            <tr>
+                <td style="text-align: left;"><%= link_to trip.name, trip_path(trip) %></td>
+                <td><%= trip.average_rating %></td>
+                <td><%= trip.trip_locations.count %></td>
+            </tr>
+        <% end %>
+        </table>
+
+        <br><br><br>
+        <button class="btn btn-outline-primary" type="button">
+            <%= link_to "Add A New Trip", new_trip_path, method: :get %>
+        </button>
+
+    <% else %>
+
+        <div style="width: 60%; margin-left:auto; margin-right:auto;">
+        <button class="btn btn-outline-primary" style= "float:right; margin-left: 5px;" type="button">
+        <%= link_to "No", user_path(current_user), method: :get %>
+        </button>
+        
+        <button class="btn btn-outline-primary" style= "float:right;" type="button">
+        <%= link_to "Yes", new_trip_path, method: :get %>
+        </button>
+            <h5>You Have No Trips! Would You Like to Create One?</h5>
+
+        </div>
     <% end %>
-    </table>
-
-    <br><br><br>
-    <button class="btn btn-outline-primary" type="button">
-        <%= link_to "Add A New Trip", new_trip_path, method: :get %>
-    </button>
-
-<% else %>
-
-    <div style="width: 60%; margin-left:auto; margin-right:auto;">
-    <button class="btn btn-outline-primary" style= "float:right; margin-left: 5px;" type="button">
-    <%= link_to "No", user_path(current_user), method: :get %>
-    </button>
-    
-    <button class="btn btn-outline-primary" style= "float:right;" type="button">
-    <%= link_to "Yes", new_trip_path, method: :get %>
-    </button>
-        <h5>You Have No Trips! Would You Like to Create One?</h5>
-
-    </div>
-<% end %>
+</div>

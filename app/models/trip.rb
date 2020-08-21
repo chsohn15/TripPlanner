@@ -2,9 +2,10 @@ class Trip < ApplicationRecord
     belongs_to :user
     has_many :trip_locations
     has_many :locations, through: :trip_locations
-    validates :name, :start_date, :end_date, presence: true
-    validates :name, uniqueness: {case_sensitive: false}
-    validate :end_date_is_after_start_date
+    validates :name, presence: true, uniqueness: {case_sensitive: false}
+    validates :start_date, presence: true
+    validates :end_date, presence: true
+    validate :end_date_is_after_start_date, if: :date_present?
 
 
     def average_rating
@@ -27,5 +28,9 @@ class Trip < ApplicationRecord
         if end_date < start_date
             errors.add(:end_date, "cannot be before the start date")
         end
+    end
+
+    def date_present?
+        start_date.presence && end_date.presence
     end
 end

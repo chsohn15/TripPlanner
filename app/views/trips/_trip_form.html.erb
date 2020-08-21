@@ -12,5 +12,5 @@
     <%= f.date_field :start_date, as: :date, value: f.object.try(:strftime, "%m/%d/%Y"), class: "form-control"%><br>
     <%= f.label :end_date, "End Date" %>
     <%= f.date_field :end_date, as: :date, value: f.object.try(:strftime, "%m/%d/%Y"), class: "form-control"%><br>
-    <div style="text-align:right;"><button type="submit" class="btn btn-primary">Create Trip</button></div>
+    <div style="text-align:right;"><button type="submit" class="btn btn-primary"> <%=button_name %> </button></div>
 <% end %>
