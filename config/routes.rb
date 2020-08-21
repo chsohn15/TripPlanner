@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#login"
   post '/login', to: "sessions#process_login"
   delete '/logout', to: "sessions#logout"
+  get '/about', to: "countries#about", as: "about"
 
 
 end

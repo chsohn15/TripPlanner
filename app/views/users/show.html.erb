@@ -15,14 +15,14 @@
     </div>
     <div style="float:right; margin-right: 20%;">
         <% if @user.trips.any? %>
-            <h5>Cities Visited:</h5>
+            <strong>Cities Visited:</strong>
             <ul>
                 <% @user.cities.each do |city| %>
                     <li><%= city.name %></li>
                 <%end%>
             </ul>
 
-            <h5>Countries Visited: </h5>
+            <strong>Countries Visited: </strong>
             <ul>
                 <% @user.countries.each do |country|%>
                     <li><%= country.name %></li>

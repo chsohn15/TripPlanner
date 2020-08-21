@@ -38,10 +38,12 @@
   background-position: 65% 35%;
   height: 180px;
   text-align: center;
+  
 }
 
 .title-content {
-  vertical-align: middle;
+  vertical-align: left;
+
 }
 
 .welcome {
