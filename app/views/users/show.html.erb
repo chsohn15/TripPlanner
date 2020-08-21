@@ -1,8 +1,8 @@
 <div style="width:75%; margin-left:auto; margin-right:auto;">
     <div style= "float:right;">
         <button class="btn btn-outline-primary" type= "button"><%= link_to "My Trips", trips_path, method: :get %></button>
-        <button class="btn btn-outline-primary" type= "button"><%= link_to "Edit Account Information", edit_user_path(@user), method: :get %></button>
-        <button class="btn btn-outline-primary" type= "button"><%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete this account?"}%></button>
+        <button class="btn btn-outline-info" type= "button"><%= link_to "Edit Account Information", edit_user_path(@user), method: :get %></button>
+        <button class="btn btn-outline-danger" type= "button"><%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete this account?"}%></button>
     </div>
 
     <h3> My Account Information </h3>

@@ -2,8 +2,8 @@
     <div style="float:right; margin-top:8px;">
         <button type="button" class= "btn btn-outline-primary" ><%= link_to "Add Locations", home_path, method: :get %></button>
         <button type="button" class= "btn btn-outline-primary" ><%= link_to "All Trips", trips_path, method: :get %></button>
-        <button type="button" class= "btn btn-outline-primary" ><%= link_to "Edit Trip", edit_trip_path(@trip), method: :get %></button>
-        <button type="button" class= "btn btn-outline-primary" ><%= link_to "Delete Trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%></button>
+        <button type="button" class= "btn btn-outline-info" ><%= link_to "Edit Trip", edit_trip_path(@trip), method: :get %></button>
+        <button type="button" class= "btn btn-outline-danger" ><%= link_to "Delete Trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%></button>
     </div>
     <h1><%= @trip.name %></h1><br><br>
 
